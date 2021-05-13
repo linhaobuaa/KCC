@@ -8,20 +8,17 @@ Copyright (c) 2021 Hao Lin & Hongfu Liu & Junjie Wu.
 
 1. Introduction
 ===============
-
 KCC is a MATLAB package for K-means-based Consensus Clustering framework with different utility functions: 
-	- U_c: Category Utility Function with Euclidean distance as distance measure
-	- U_h: Shannon Entropy Utility Function with KL-divergence as distance measure
-	- U_cos: Cosine Utility Function with Cosine Similarity as distance measure
-	- U_lp: Lp Utility Function with Lp-norm as distance measure
-	- NUx: normalized form of the above utility functions 
+    - U_c: Category Utility Function with Euclidean distance as distance measure
+    - U_h: Shannon Entropy Utility Function with KL-divergence as distance measure
+    - U_cos: Cosine Utility Function with Cosine Similarity as distance measure
+    - U_lp: Lp Utility Function with Lp-norm as distance measure
+    - NUx: normalized form of the above utility functions 
 
 
 2. Installation and Basic Usage
 ===============================
-
 A. Copy all .m files to the current directory in your MATLAB environment or a directory in your MATLAB path. 
-
 B. In the MATLAB command window, to run an illustrative example of KCC with different utility functions, type as follows,
 > demo
 After executing this command, evaluation metrics of KCC experiments with different utility functions will be stored in the result files.
@@ -29,52 +26,48 @@ After executing this command, evaluation metrics of KCC experiments with differe
 
 3. Functions in the package
 ===========================
-
 A. Format of Input Files
 ------------------------
-	- Data file: two types of data files. For the file with subfix '.dat', rows correspond to observations; columns correspond to variables. For the file with subfix '.mat', it is a sparse matrix format. Note that in all data files class labels are excluded! See example in the folder "data\iris.dat" "data\mm.mat".
-	- Truelabels file (optional, used when true cluster labels are known): n-by-1 vector of known cluster labels for all data points, see example in the folder "data\iris_rclass.dat".
-
+    - Data file: two types of data files. For the file with subfix '.dat', rows correspond to observations; columns correspond to variables. For the file with subfix '.mat', it is a sparse matrix format. Note that in all data files class labels are excluded! See example in the folder "data\iris.dat" "data\mm.mat".
+    - Truelabels file (optional, used when true cluster labels are known): n-by-1 vector of known cluster labels for all data points, see example in the folder "data\iris_rclass.dat".
 B. Illustrative Example
 ------------------------
-	- demo.m: demonstrates how to set up input arguments and use KCC with different utility functions
-	- demoNumberBP.m: demonstrates KCC experiments with increasing number of basic partitions
-	- demoStrategyBP.m: demonstrates KCC experiments with RFS strategy.
-	- demoIBPI.m: demonstrates KCC experiments using Strategy-I for generating incomplete basic partitions
-	- demoIBPII.m: demonstrates KCC experiments using Strategy-II for generating incomplete basic partitions
+    - demo.m: demonstrates how to set up input arguments and use KCC with different utility functions
+    - demoNumberBP.m: demonstrates KCC experiments with increasing number of basic partitions
+    - demoStrategyBP.m: demonstrates KCC experiments with RFS strategy.
+    - demoIBPI.m: demonstrates KCC experiments using Strategy-I for generating incomplete basic partitions
+    - demoIBPII.m: demonstrates KCC experiments using Strategy-II for generating incomplete basic partitions
 
 C. The process of KCC includes
 ------------------------------
 (1) Generating basic partitions
-    There are two functions for generating basic partitions.
-	-  BasicCluster_RFS: generates basic partitions using RFS strategy
-	-  BasicCluster_RPS: generates basic partitions using RPS strategy
+    There are two functions for generating basic partitions:
+    -  BasicCluster_RFS: generates basic partitions using RFS strategy
+    -  BasicCluster_RPS: generates basic partitions using RPS strategy
 
 (2) Preprocessing for consensus clustering
-	- Preprocess: prepare for consensus clustering
+    - Preprocess: prepare for consensus clustering
 
 (3) Performing consensus function
-	- KCC: perform the final consensus function using different utility functions
+    - KCC: perform the final consensus function using different utility functions
 
 (4) Evaluating clustering quality
-	- exMeasure: computes validity scores for clustering results
+    - exMeasure: computes validity scores for clustering results
 
 D. Auxiliary functions
 ----------------------
-	- load_sparse: loads input text data as a sparse matrix.
-	- hungarian: solves the assignment problem using the Hungarian method (auxiliary function for permuting labels of clustering results to match true labels as good as possible).
-	- BasicCluster_RPS_missing: randomly removes data instances from a data set and then employs k-means on the incomplete data set (auxiliary function for generating incomplete basic partitions using strategy-I).
-	- addmissing: randomly removes some labels from complete basic partitions (auxiliary function for generating incomplete basic partitions using strategy-II).
-	- distance_cos, distance_cos_miss, distance_euc, distance_euc_miss, distance_kl, distance_kl_miss, distance_lp, distance_lp_miss: distance calculation on dataset with or without missing value using different distance measures, i.e., cosine similarity, euclidean distance, KL-divergence, Lp-norm.
-	- gClusterDistribution: calculates cluster distribution for basic partitions (auxiliary function for preprocessing).
-	- Ucompute, Ucompute_miss: calculates the utility function on data set with or without missing value (auxiliary function for consensus clustering).
-	- gCentroid, gCentroid_miss: updates centroid for each cluster on data set with or without missing value (auxiliary function for consensus clustering).
-	- sCentroid, sCentroid_miss: initializes centroid for each cluster on data set with or without missing value (auxiliary function for consensus clustering).
-
+    - load_sparse: loads input text data as a sparse matrix.
+    - hungarian: solves the assignment problem using the Hungarian method (auxiliary function for permuting labels of clustering results to match true labels as good as possible).
+    - BasicCluster_RPS_missing: randomly removes data instances from a data set and then employs k-means on the incomplete data set (auxiliary function for generating incomplete basic partitions using strategy-I).
+    - addmissing: randomly removes some labels from complete basic partitions (auxiliary function for generating incomplete basic partitions using strategy-II).
+    - distance_cos, distance_cos_miss, distance_euc, distance_euc_miss, distance_kl, distance_kl_miss, distance_lp, distance_lp_miss: distance calculation on dataset with or without missing value using different distance measures, i.e., cosine similarity, euclidean distance, KL-divergence, Lp-norm.
+    - gClusterDistribution: calculates cluster distribution for basic partitions (auxiliary function for preprocessing).
+    - Ucompute, Ucompute_miss: calculates the utility function on data set with or without missing value (auxiliary function for consensus clustering).
+    - gCentroid, gCentroid_miss: updates centroid for each cluster on data set with or without missing value (auxiliary function for consensus clustering).
+    - sCentroid, sCentroid_miss: initializes centroid for each cluster on data set with or without missing value (auxiliary function for consensus clustering).
 * Note: to get a description for each function, type "help" following by the function name in the MATLAB command window.
 
 
 4. Contact
 ==========
-
 For questions and comments, please feel free to contact Dr. Hao Lin at linh@in.tum.de.
