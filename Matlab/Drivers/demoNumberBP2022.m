@@ -22,14 +22,14 @@ addpath ../Src/
 % K = 2;
 
 %%%% for mm dataset %%%%%
-datafile = 'mm';
-subfix = '.mat';
-K = 2;
+% datafile = 'mm';
+% subfix = '.mat';
+% K = 2;
 
 %%%% for reviews dataset %%%%%
-% datafile = 'reviews';
-% subfix = '.mat';
-% K = 5;
+datafile = 'reviews';
+subfix = '.mat';
+K = 5;
 
 %%%% parameters of basic partitionings %%%%
 r_array = [10 20 30 40 50 60 70 80 90]; % number of basic partitions sampled from 1000 basic partitions, r=10, 20, 30,...,90
