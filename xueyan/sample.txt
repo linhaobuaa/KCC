@@ -1,0 +1,11 @@
+\syntax{P = TB\_patch\_spline(p, xx, kk)}
+
+\begin{inputlist}
+  \paramitem{p}{B-spline degree}
+  \paramitem{xx}{vector of break points}
+  \paramitem{kk}{smoothness vector (optional)}
+\end{inputlist}
+
+\begin{outputlist}
+  \paramitem{P}{TB-spline patch}
+\end{outputlist}
