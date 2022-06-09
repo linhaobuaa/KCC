@@ -46,7 +46,8 @@ def main(dataset):
                 else:
                     values.append(float(linedata[j]))
     data = csr_matrix((values, (rows, cols)))
-    # print (data)
+    data = pd.DataFrame.sparse.from_spmatrix(data)
+    # print (data.shape)
     data_labels = pd.read_csv("../data/%s_rclass.dat" % dataset, header=None)
     # print (data_labels)
 
