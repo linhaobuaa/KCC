@@ -36,7 +36,9 @@ def main(dataset):
             if idx == 0:
                 continue
 
-            linedata = line.lstrip().strip().split(" ")
+            linedata = line.strip().replace("   ", " ").replace("  ", " ").split(" ")
+            #print (line.strip().split(" "))
+            #print (linedata)
             for j in range(0, len(linedata)):
                 if j % 2 == 0:
                     rows.append(idx - 1)
