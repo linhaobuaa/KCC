@@ -9,7 +9,7 @@ if ~exist('method')
 end;
 
 if ~exist('dataname'),
-      dataname = ['' 'graph'];
+      dataname = ['~/KCC/Matlab/Drivers/baseline_ClusterPack-V2.0_JMLR02/' 'graph'];
 end;
 dataname = [dataname num2str(method)];
 %disp(dataname);
@@ -29,6 +29,7 @@ end;
 %disp(dataname); % graph0
 
 fid = fopen(dataname,'w');
+disp(fid);
 
 if (fid~=-1)
 
@@ -65,6 +66,7 @@ if ((method == 0)|(method == 1)),
       end;
       fprintf(fid,'%d ',interlaced); 
       fprintf(fid,'\n');
+      %disp("here3");
    end;
    disp("here2");
 else
@@ -83,7 +85,8 @@ else
 end;
 
 disp("here1");
-fclose(fid);
+sta = fclose(fid);
+disp(sta);
 
 else
 
