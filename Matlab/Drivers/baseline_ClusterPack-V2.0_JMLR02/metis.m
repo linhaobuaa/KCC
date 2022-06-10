@@ -5,5 +5,6 @@
 function labels=metis(x,k) 
 
 filename = wgraph(x,[],0);
+disp(['filename: ' filename])
 labels = sgraph(k,filename);
 delete(filename);

@@ -1,5 +1,7 @@
 %----------identify all input arguments----------
 
+clear;
+
 %%%% for iris dataset %%%%%
 datafile = 'iris';
 subfix = '.dat';

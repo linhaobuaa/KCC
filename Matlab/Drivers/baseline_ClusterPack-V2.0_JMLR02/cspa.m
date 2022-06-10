@@ -17,5 +17,6 @@ clbs = clstoclbs(cls);
 s = clbs' * clbs;
 
 s = checks(s./size(cls,1));
+disp('here cspa');
 cl = metis(s,k);
 
