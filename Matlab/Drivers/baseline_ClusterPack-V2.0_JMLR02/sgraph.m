@@ -4,7 +4,7 @@
 
 function labels = sgraph(k,dataname) 
 
-scriptfile = ['' 'partgraph' num2str(sum(dataname=='0')) num2str(sum(dataname=='1')) num2str(sum(dataname=='2')) num2str(sum(dataname=='3')) '.bat'];
+scriptfile = ['' 'partgraph' num2str(sum(dataname=='0')) num2str(sum(dataname=='1')) num2str(sum(dataname=='2')) num2str(sum(dataname=='3'))];
 
 if ~exist('dataname'),
       dataname = ['' 'graph0'];
