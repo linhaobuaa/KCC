@@ -89,7 +89,7 @@ avgRn = 0; % average Rn
 avgNMI = 0; % average NMI
 avgVIn = 0; % average VIn
 avgVDn = 0; % average VDn
-avgt = 0; % average execution time
+%avgt = 0; % average execution time
 for num = 1 : 10
     pi_index = clusterensemble(cls, K);
     [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, true_label); % evaluating clustering quality
@@ -98,14 +98,14 @@ for num = 1 : 10
     avgNMI = avgNMI + NMI;
     avgVIn = avgVIn + VIn;
     avgVDn = avgVDn + VDn;
-    avgt = avgt + t;
+    %avgt = avgt + t;
 end
 avgAcc = avgAcc / num;
 avgRn = avgRn / num;
 avgNMI = avgNMI / num;
 avgVIn = avgVIn / num;
 avgVDn = avgVDn / num;
-avgt = avgt / num;
+%avgt = avgt / num;
 filename = strcat('clusterensemble_',strcat(datafile, '_result.mat'));
-save(filename,'avgt', 'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
+save(filename,'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
 
