@@ -82,7 +82,7 @@ true_label = load(strcat('../data/',strcat(datafile,'_rclass.dat'))); % load the
 IDX = BasicCluster_RPS(data, r, K, dist_of_basic_cluster, randKi);
 
 %----------performing consensus function----------
-cls = transpose(IDX)
+cls = transpose(IDX);
 
 avgAcc = 0; % average Classification Accuracy
 avgRn = 0; % average Rn
