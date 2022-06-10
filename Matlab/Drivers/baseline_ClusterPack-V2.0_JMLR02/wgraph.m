@@ -12,11 +12,13 @@ if ~exist('dataname'),
       dataname = ['' 'graph'];
 end;
 dataname = [dataname num2str(method)];
+%disp(dataname);
 
 if ((method == 0)|(method == 1)),
   e=e-diag(diag(e));
 end;
 e = ints(e);
+%disp(e);
 if ((method==1)|(method==3)),
   w = ints(w);
 end;
@@ -24,6 +26,7 @@ end;
 while exist(dataname,'file')
    dataname = [dataname num2str(method)];
 end;
+%disp(dataname); % graph0
 
 fid = fopen(dataname,'w');
 
