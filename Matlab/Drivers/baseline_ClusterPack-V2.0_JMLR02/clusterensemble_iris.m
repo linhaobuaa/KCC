@@ -69,14 +69,14 @@ randKi = 1;
 
 %----------loading data----------
 if strcmp(subfix,'.dat')
-    data = load(strcat('data/',strcat(datafile,'.dat')));
+    data = load(strcat('../data/',strcat(datafile,'.dat')));
 elseif strcmp(subfix,'.mat')
-    [sp_mtx, n, m, count] = load_sparse(strcat('data/',strcat(datafile,'.mat')));
+    [sp_mtx, n, m, count] = load_sparse(strcat('../data/',strcat(datafile,'.mat')));
     data = sp_mtx;
 else
     error('start1:UnknownInputDataType','Only .dat and .mat data is supported.');
 end
-true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the true label
+true_label = load(strcat('../data/',strcat(datafile,'_rclass.dat'))); % load the true label
 
 %----------using RPS for generating basic partitions----------
 IDX = BasicCluster_RPS(data, r, K, dist_of_basic_cluster, randKi);
