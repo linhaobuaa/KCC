@@ -66,6 +66,7 @@ if ((method == 0)|(method == 1)),
       fprintf(fid,'%d ',interlaced); 
       fprintf(fid,'\n');
    end;
+   disp("here2");
 else
    disp(['wgraph: ' num2str(size(e,1)) ' vertices and ' num2str(size(e,2)) ' non-zero hyperedges']);
    for i=1:size(e,2), 
@@ -81,6 +82,7 @@ else
    end;
 end;
 
+disp("here1");
 fclose(fid);
 
 else
