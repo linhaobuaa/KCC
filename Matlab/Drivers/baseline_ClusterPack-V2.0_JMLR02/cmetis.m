@@ -1,9 +1,10 @@
-% function labels=metis(x,k)
+% function labels=cmetis(e,w,k)
 %
 % copyright (c) 1998-2011 by Alexander Strehl
 
-function labels=metis(x,k) 
 
-filename = wgraph(x,[],0);
+function labels=cmetis(e,w,k) 
+
+filename = wgraph(e,w,1);
 labels = sgraph(k,filename);
 delete(filename);

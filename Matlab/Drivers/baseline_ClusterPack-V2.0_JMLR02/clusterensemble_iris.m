@@ -94,6 +94,7 @@ avgVDn = 0; % average VDn
 %avgt = 0; % average execution time
 for num = 1 : 10
     cl = clusterensemble(cls, K);
+    cl = transpose(cl);
     [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(cl, true_label); % evaluating clustering quality
     avgAcc = avgAcc + Acc;
     avgRn = avgRn + Rn;

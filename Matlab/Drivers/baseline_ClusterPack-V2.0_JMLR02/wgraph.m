@@ -9,23 +9,23 @@ if ~exist('method')
 end
 
 if ~exist('dataname')
-    dataname = ['' 'graph']
+    dataname = ['' 'graph'];
 end
-dataname = [dataname num2str(method)]
+dataname = [dataname num2str(method)];
 
-if ((method == 0)|(method == 1))
+if ((method == 0)||(method == 1))
     e=e-diag(diag(e));
 end
 e = ints(e);
-if ((method==1)|(method==3))
+if ((method==1)||(method==3))
     w = ints(w);
 end
 
-%while exist(dataname,'file')
-%   dataname = [dataname num2str(method)];
-%end
+while exist(dataname,'file')
+   dataname = [dataname num2str(method)];
+end
 
-fid = fopen(dataname,'w')
+fid = fopen(dataname,'w');
 
 if (fid~=-1)
     disp(['wgraph: writing ' dataname ]);
@@ -46,8 +46,8 @@ if (fid~=-1)
         end
     end
 
-    if ((method == 0)|(method == 1))
-        disp('here1');
+    if ((method == 0)||(method == 1))
+        %disp('here1');
         for i=1:size(e,1)
             edges = find(e(i,:)>0);
             weights = e(i,edges);
@@ -65,12 +65,14 @@ if (fid~=-1)
             %disp('------------')
             fprintf(fid,'%d ',interlaced); 
             fprintf(fid,'\n');
-            %fclose(fid);
+            %if i == 150
+            %    fclose(fid);
+            %end
         end
         fclose(fid);
-        disp('here4');
+        %disp('here4');
     else
-        disp('here5');
+        %disp('here5');
         disp(['wgraph: ' num2str(size(e,1)) ' vertices and ' num2str(size(e,2)) ' non-zero hyperedges']);
         for i=1:size(e,2) 
             edges = find(e(:,i)>0)';
@@ -86,10 +88,10 @@ if (fid~=-1)
         fclose(fid);
     end
 
-    disp('here2');
+    %disp('here2');
     %sta = fclose(fid);
     %disp(sta);
-    disp('here3');
+    %disp('here3');
 else
     disp(['wgraph: writing to ' dataname ' failed']);
 end

@@ -10,22 +10,27 @@ if ~exist('dataname'),
       dataname = ['' 'graph0'];
 end;
 resultname = [dataname '.part.' num2str(k)];
+%disp(resultname);
 
 lastchar = str2num(dataname(length(dataname)));
+%disp(lastchar);
 if (isempty(lastchar)),
   disp('sgraph: file does not comply to name convention');
   lastchar = 0;
 end;
 fid = fopen(scriptfile,'w');
-if (lastchar<2),
-   fprintf(fid,'%s\n',['pmetis ' dataname ' ' num2str(k)]);
+if (lastchar<2)
+   strings = ['/usr/local/bin/' 'gpmetis ' dataname ' ' num2str(k)]
+   fprintf(fid,'%s\n',strings);
 else
    ubfactor = 5;
-   fprintf(fid,'%s\n',['shmetis ' dataname ' ' num2str(k) ' ' num2str(ubfactor)]);
+   fprintf(fid,'%s\n',[pwd() '/' 'shmetis ' dataname ' ' num2str(k) ' ' num2str(ubfactor)]);
 end;
 fclose(fid);
 
-system(scriptfile);
+full_scriptfile = [pwd() '/' scriptfile];
+system(['chmod a+x ' full_scriptfile]);
+system(full_scriptfile);
 
 delete(scriptfile);
 
