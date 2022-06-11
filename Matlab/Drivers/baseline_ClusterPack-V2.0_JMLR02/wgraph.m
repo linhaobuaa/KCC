@@ -63,9 +63,9 @@ if (fid~=-1)
             end
             %interlaced
             %disp('------------')
-            fprintf(fid,'%f ',interlaced); 
+            fprintf(fid,'%d ',interlaced); 
             fprintf(fid,'\n');
-            fclose(fid);
+            %fclose(fid);
         end
         fclose(fid);
         disp('here4');
