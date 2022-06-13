@@ -71,14 +71,14 @@ dcASRS = 0.8; % the decay factor fot ASRS method
 % [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R, dcASRS, truelabels); %truelabels is optional
 
 % so, the function can be called:
-methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'}
+methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'};
 for me = 1: length(methods_names)
     avgAcc = 0; % average Classification Accuracy
     avgRn = 0; % average Rn
     avgNMI = 0; % average NMI
     avgVIn = 0; % average VIn
     avgVDn = 0; % average VDn
-    for num = 1 : 1
+    for num = 1 : 10
         [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
         pi_index = cell2mat(CR(2:size(CR,1),me));
         [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, truelabels); % evaluating clustering quality
