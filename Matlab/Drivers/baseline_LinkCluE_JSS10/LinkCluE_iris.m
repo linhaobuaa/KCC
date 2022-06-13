@@ -72,7 +72,7 @@ dcASRS = 0.8; % the decay factor fot ASRS method
 
 % so, the function can be called:
 num_methods = size(CR, 2)
-methods_names = CR(1,:)
+methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'}
 for me = 1: num_methods
     avgAcc = 0; % average Classification Accuracy
     avgRn = 0; % average Rn
