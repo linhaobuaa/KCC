@@ -66,7 +66,7 @@ R = 5; % the number of iterations for SRS method (SimRank algorithm)
 dcASRS = 0.8; % the decay factor fot ASRS method
 
 % perform link-based cluster ensemble algorithm
-[CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R, dcASRS, truelabels); %truelabels is optional
+% [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R, dcASRS, truelabels); %truelabels is optional
 
 % so, the function can be called:
-% [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
+[CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
