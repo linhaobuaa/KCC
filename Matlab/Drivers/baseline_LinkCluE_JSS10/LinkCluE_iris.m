@@ -98,6 +98,6 @@ for me = 1:length(methods_names)
     avgNMI = mean(NMIarray(me, :));
     avgVIn = mean(VInarray(me, :));
     avgVDn = mean(VDnarray(me, :));
-    filename = ['LinkCluE_' datafile '_' methods_names(me) '_consensusresult' '.mat'];
+    filename = strcat(strcat(strcat(strcat(strcat('LinkCluE_', datafile), '_'), methods_names(me)), '_consensusresult'), '.mat');
     save(filename,'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
 end
