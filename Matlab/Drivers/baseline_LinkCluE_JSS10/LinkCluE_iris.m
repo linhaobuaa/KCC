@@ -69,4 +69,24 @@ dcASRS = 0.8; % the decay factor fot ASRS method
 % [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R, dcASRS, truelabels); %truelabels is optional
 
 % so, the function can be called:
-[CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
+avgAcc = 0; % average Classification Accuracy
+avgRn = 0; % average Rn
+avgNMI = 0; % average NMI
+avgVIn = 0; % average VIn
+avgVDn = 0; % average VDn
+for num = 1 : 10
+    [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
+    [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(CR, truelabels); % evaluating clustering quality
+    avgAcc = avgAcc + Acc;
+    avgRn = avgRn + Rn;
+    avgNMI = avgNMI + NMI;
+    avgVIn = avgVIn + VIn;
+    avgVDn = avgVDn + VDn;
+end
+avgAcc = avgAcc / num;
+avgRn = avgRn / num;
+avgNMI = avgNMI / num;
+avgVIn = avgVIn / num;
+avgVDn = avgVDn / num;
+filename = strcat(['LinkCluE_' datafile '_consensusresult'], '.mat');
+save(filename,'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix

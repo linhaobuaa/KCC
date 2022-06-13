@@ -45,7 +45,7 @@ if exist('truelabels')
 else
     xlabel = {'CP';'DB';'Dunn'};
 end
-showBar(V, xlabel, methods);
+%showBar(V, xlabel, methods);
 
 % format result
 V = [['Validity Index' methods]; [xlabel num2cell(V)]];
