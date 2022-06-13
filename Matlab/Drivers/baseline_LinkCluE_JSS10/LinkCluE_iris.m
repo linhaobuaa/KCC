@@ -72,27 +72,32 @@ dcASRS = 0.8; % the decay factor fot ASRS method
 
 % so, the function can be called:
 methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'};
-for me = 1: length(methods_names)
-    avgAcc = 0; % average Classification Accuracy
-    avgRn = 0; % average Rn
-    avgNMI = 0; % average NMI
-    avgVIn = 0; % average VIn
-    avgVDn = 0; % average VDn
-    for num = 1 : 10
-        [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
+num_experiments = 1;
+
+Accarray = zeros(length(methods_names), num_experiments); % average Classification Accuracy
+Rnarray = zeros(length(methods_names), num_experiments); % average Rn
+NMIarray = zeros(length(methods_names), num_experiments); % average NMI
+VInarray = zeros(length(methods_names), num_experiments); % average VIn
+VDnarray = zeros(length(methods_names), num_experiments); % average VDn
+for num = 1 : num_experiments
+    [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
+    for me = 1: length(methods_names)
         pi_index = cell2mat(CR(2:size(CR,1),me));
         [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, truelabels); % evaluating clustering quality
-        avgAcc = avgAcc + Acc;
-        avgRn = avgRn + Rn;
-        avgNMI = avgNMI + NMI;
-        avgVIn = avgVIn + VIn;
-        avgVDn = avgVDn + VDn;
+        Accarray(me, num) = Acc;
+        Rnarray(me, num) = Rn;
+        NMIarray(me, num) = NMI;
+        VInarray(me, num) = VIn;
+        VDnarray(me, num) = VDn;
     end
-    avgAcc = avgAcc / num;
-    avgRn = avgRn / num;
-    avgNMI = avgNMI / num;
-    avgVIn = avgVIn / num;
-    avgVDn = avgVDn / num;
-    filename = strcat(['LinkCluE_' datafile methods_names(me) '_consensusresult'], '.mat');
+end
+
+for me = 1:length(methods_names)
+    avgAcc = mean(Accarray(me, :));
+    avgRn = mean(Rnarray(me, :));
+    avgNMI = mean(NMIarray(me, :));
+    avgVIn = mean(VInarray(me, :));
+    avgVDn = mean(VDnarray(me, :));
+    filename = strcat(['LinkCluE_' datafile '_' methods_names(me) '_consensusresult'], '.mat');
     save(filename,'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
 end
