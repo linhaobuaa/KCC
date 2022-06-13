@@ -71,25 +71,29 @@ dcASRS = 0.8; % the decay factor fot ASRS method
 % [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R, dcASRS, truelabels); %truelabels is optional
 
 % so, the function can be called:
-avgAcc1 = 0; % average Classification Accuracy
-avgRn1 = 0; % average Rn
-avgNMI1 = 0; % average NMI
-avgVIn1 = 0; % average VIn
-avgVDn1 = 0; % average VDn
-for num = 1 : 10
-    [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
-    pi_index = cell2mat(CR(2:size(CR,1),1));
-    [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, truelabels); % evaluating clustering quality
-    avgAcc1 = avgAcc1 + Acc;
-    avgRn1 = avgRn1 + Rn;
-    avgNMI1 = avgNMI1 + NMI;
-    avgVIn1 = avgVIn1 + VIn;
-    avgVDn1 = avgVDn1 + VDn;
+num_methods = size(CR, 2)
+methods_names = CR(1,:)
+for me = 1: num_methods
+    avgAcc = 0; % average Classification Accuracy
+    avgRn = 0; % average Rn
+    avgNMI = 0; % average NMI
+    avgVIn = 0; % average VIn
+    avgVDn = 0; % average VDn
+    for num = 1 : 10
+        [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R); 
+        pi_index = cell2mat(CR(2:size(CR,1),me));
+        [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, truelabels); % evaluating clustering quality
+        avgAcc = avgAcc + Acc;
+        avgRn = avgRn + Rn;
+        avgNMI = avgNMI + NMI;
+        avgVIn = avgVIn + VIn;
+        avgVDn = avgVDn + VDn;
+    end
+    avgAcc = avgAcc / num;
+    avgRn = avgRn / num;
+    avgNMI = avgNMI / num;
+    avgVIn = avgVIn / num;
+    avgVDn = avgVDn / num;
+    filename = strcat(['LinkCluE_' datafile methods_names(me) '_consensusresult'], '.mat');
+    save(filename,'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
 end
-avgAcc = avgAcc1 / num;
-avgRn = avgRn1 / num;
-avgNMI = avgNMI1 / num;
-avgVIn = avgVIn1 / num;
-avgVDn = avgVDn1 / num;
-filename = strcat(['LinkCluE_' datafile '_consensusresult'], '.mat');
-save(filename,'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
