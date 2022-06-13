@@ -1,4 +1,4 @@
-function [CR,V] = LinkCluETest
+function LinkCluETest
 %==========================================================================
 % FUNCTION: [CR,V] = LinkCluETest
 % DESCRIPTION: A function for testing link-based cluster ensemble algorithms
