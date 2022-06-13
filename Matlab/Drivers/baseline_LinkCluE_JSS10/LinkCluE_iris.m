@@ -33,11 +33,6 @@ datafile = 'iris';
 subfix = '.dat';
 K = 3; % number of clusters for consensus clustering
 
-methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'};
-a = methods_names(1);
-filename = strcat(strcat(strcat(strcat(strcat('LinkCluE_', datafile), '_'), a), '_consensusresult'), '.mat');
-save(filename,'K')
-
 if strcmp(subfix,'.dat')
     X = load(strcat('../data/',strcat(datafile,'.dat')));
 elseif strcmp(subfix,'.mat')
@@ -103,6 +98,6 @@ for me = 1:length(methods_names)
     avgNMI = mean(NMIarray(me, :));
     avgVIn = mean(VInarray(me, :));
     avgVDn = mean(VDnarray(me, :));
-    filename = strcat(strcat(strcat(strcat(strcat('LinkCluE_', datafile), '_'), methods_names(me)), '_consensusresult'), '.mat');
+    filename = strcat(strcat(strcat(strcat(strcat('LinkCluE_', datafile), '_'), char(methods_names(me))), '_consensusresult'), '.mat');
     save(filename,'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
 end
