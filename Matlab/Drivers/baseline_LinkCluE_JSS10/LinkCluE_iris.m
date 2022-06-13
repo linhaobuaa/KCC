@@ -33,6 +33,9 @@ datafile = 'iris';
 subfix = '.dat';
 K = 3; % number of clusters for consensus clustering
 
+filename = strcat(strcat(strcat(strcat('LinkCluE_', datafile), '_'), '_consensusresult'), '.mat');
+save(filename,'K')
+
 if strcmp(subfix,'.dat')
     X = load(strcat('../data/',strcat(datafile,'.dat')));
 elseif strcmp(subfix,'.mat')
