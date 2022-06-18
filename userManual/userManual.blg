@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: userManual.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: references.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty address in cover2012elements
+Warning--empty institution in dongen2000performance
+You've used 6 entries,
+            5901 wiz_defined-function locations,
+            1367 strings with 15648 characters,
+and the built_in function-call counts, 6902 in all, are:
+= -- 947
+> -- 195
+< -- 0
++ -- 62
+- -- 76
+* -- 444
+:= -- 689
+add.period$ -- 32
+call.type$ -- 6
+change.case$ -- 36
+chr.to.int$ -- 6
+cite$ -- 8
+duplicate$ -- 604
+empty$ -- 422
+format.name$ -- 92
+if$ -- 1672
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 19
+newline$ -- 92
+num.names$ -- 48
+pop$ -- 192
+preamble$ -- 1
+purify$ -- 89
+quote$ -- 0
+skip$ -- 222
+stack$ -- 0
+substring$ -- 547
+swap$ -- 70
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 123
+warning$ -- 2
+while$ -- 55
+width$ -- 0
+write$ -- 148
+(There were 2 warnings)

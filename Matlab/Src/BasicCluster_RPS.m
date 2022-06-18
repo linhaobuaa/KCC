@@ -9,7 +9,7 @@ function IDX = BasicCluster_RPS(Data, r, K, dist, randKi)
 %           r = the predefined number of basic partitions in the ensemble
 %           K = the predefined number of clusters in the basic partitions
 %           dist = the distance measure for k-means clustering, in p-dimensional space
-%           rankKi = the number-of-clusters parameter for different basic partitions
+%           randKi = the number-of-clusters parameter for different basic partitions
 %                    1: Ki=randomly sampled vector; a r-by-1 vector: Ki=randKi; other values: Ki=K 
 %
 % OUTPUT:   IDX = the basic clustering matrix result, rows of IDX correspond
