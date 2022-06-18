@@ -1,5 +1,12 @@
 # Fdb version 3
-["pdflatex"] 1653270943 "userManual.tex" "userManual.pdf" "userManual" 1653270944
+["bibtex userManual"] 1655542949 "userManual.aux" "userManual.bbl" "userManual" 1655542951
+  "/usr/local/texlive/2019/texmf-dist/bibtex/bst/acmart/ACM-Reference-Format.bst" 1582593582 84856 cdf46f74ac483d72585084276eb3e09d ""
+  "references.bib" 1655542946 1906 784c324564e6e7ad3e200667753d45c3 ""
+  "userManual.aux" 1655542950 3914 bfbf44ce8ca41276c54c9f18968a0cb3 "pdflatex"
+  (generated)
+  "userManual.bbl"
+  "userManual.blg"
+["pdflatex"] 1655542949 "userManual.tex" "userManual.pdf" "userManual" 1655542951
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -30,7 +37,9 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1136768653 1504 1747189e0441d1c18f3ea56fafc1c480 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm" 1136768653 768 d7b9a2629a0c353102ad947dc9221d49 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm" 1136768653 520 82a3d37183f34b6eb363a161dfc002c2 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy5.tfm" 1136768653 520 d082ac03a1087bc1ec2a06e24a9f68c0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm" 1136768653 520 4889cce2180234b97cad636b6039c722 ""
@@ -50,7 +59,9 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb" 1248133631 24373 a91d375736817a75026663adcb2190c1 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1248133631 35660 fb24af7afbadb71801619f1415838111 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb" 1248133631 24287 6b803fa9eb1ddff9112e00519b09dd9e ""
   "/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2019/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2019/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -213,11 +224,12 @@
   "acmtrans2e.cls" 1653018375 43303 999b15b43ad303f4987309c4d0d06f2c ""
   "fig/soft.eps" 1652892727 3889518 a488c33b63dbddad2af130676df9f09a ""
   "tikz-uml.sty" 1653018375 302703 ed2f9b5dd419a64f254ecbf6a6653c7f ""
-  "userManual.aux" 1653270944 1211 6951194251de59f50bcc845000881cc9 "pdflatex"
-  "userManual.out" 1653270944 88 1a55c69e7e314c57207eded834380b97 "pdflatex"
-  "userManual.tex" 1653270942 10390 815c26a80e4b43b7608aaedbacb994b9 ""
+  "userManual.aux" 1655542950 3914 bfbf44ce8ca41276c54c9f18968a0cb3 "pdflatex"
+  "userManual.bbl" 1655542949 4713 6e513943b7a891c2fa0df48ede012599 "bibtex userManual"
+  "userManual.out" 1655542950 1168 425a203a56820211845964a86ff4ea51 "pdflatex"
+  "userManual.tex" 1655542947 32098 01b41316ab7f750774a39b72d9a65205 ""
   (generated)
-  "userManual.pdf"
   "userManual.aux"
-  "userManual.log"
   "userManual.out"
+  "userManual.pdf"
+  "userManual.log"

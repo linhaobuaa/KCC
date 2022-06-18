@@ -1,0 +1,114 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{6}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Cai, He, and Han}{Cai et~al\mbox{.}}{2005}]%
+        {CHH05}
+\bibfield{author}{\bibinfo{person}{D. Cai}, \bibinfo{person}{X. He}, {and}
+  \bibinfo{person}{J. Han}.} \bibinfo{year}{2005}\natexlab{}.
+\newblock \showarticletitle{Document Clustering Using Locality Preserving
+  Indexing}.
+\newblock \bibinfo{journal}{\emph{IEEE Trans. Knowl. Data Eng.}}
+  \bibinfo{volume}{17}, \bibinfo{number}{12} (\bibinfo{date}{Dec}
+  \bibinfo{year}{2005}), \bibinfo{pages}{1624--1637}.
+\newblock
+\showISSN{1041-4347}
+
+
+\bibitem[\protect\citeauthoryear{Carpaneto and Toth}{Carpaneto and
+  Toth}{1980}]%
+        {carpaneto1980algorithm}
+\bibfield{author}{\bibinfo{person}{Giorgio Carpaneto} {and}
+  \bibinfo{person}{Paolo Toth}.} \bibinfo{year}{1980}\natexlab{}.
+\newblock \showarticletitle{Algorithm 548: Solution of the assignment problem
+  [H]}.
+\newblock \bibinfo{journal}{\emph{ACM Transactions on Mathematical Software
+  (TOMS)}} \bibinfo{volume}{6}, \bibinfo{number}{1} (\bibinfo{year}{1980}),
+  \bibinfo{pages}{104--111}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Cover and Thomas}{Cover and Thomas}{2012}]%
+        {cover2012elements}
+\bibfield{author}{\bibinfo{person}{Thomas~M Cover} {and} \bibinfo{person}{Joy~A
+  Thomas}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Elements of Information Theory}}.
+\newblock \bibinfo{publisher}{John Wiley \& Sons}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Dongen}{Dongen}{2000}]%
+        {dongen2000performance}
+\bibfield{author}{\bibinfo{person}{Stijn Dongen}.}
+  \bibinfo{year}{2000}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Performance Criteria for Graph Clustering
+  and Markov Cluster Experiments}}.
+\newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{address}{Amsterdam,
+  The Netherlands, The Netherlands}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Nguyen and Caruana}{Nguyen and
+  Caruana}{2007}]%
+        {nguyen2007consensus}
+\bibfield{author}{\bibinfo{person}{Nam Nguyen} {and} \bibinfo{person}{Rich
+  Caruana}.} \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Consensus Clusterings}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 2007 Seventh IEEE International
+  Conference on Data Mining}} \emph{(\bibinfo{series}{ICDM '07})}.
+  \bibinfo{publisher}{IEEE Computer Society}, \bibinfo{address}{Washington, DC,
+  USA}, \bibinfo{pages}{607--612}.
+\newblock
+\showISBNx{0-7695-3018-4}
+\urldef\tempurl%
+\url{https://doi.org/10.1109/ICDM.2007.73}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Rand}{Rand}{1971}]%
+        {rand1971objective}
+\bibfield{author}{\bibinfo{person}{William~M Rand}.}
+  \bibinfo{year}{1971}\natexlab{}.
+\newblock \showarticletitle{Objective Criteria for the Evaluation of Clustering
+  Methods}.
+\newblock \bibinfo{journal}{\emph{J. Am. Stat. Assoc.}} \bibinfo{volume}{66},
+  \bibinfo{number}{336} (\bibinfo{year}{1971}), \bibinfo{pages}{846--850}.
+\newblock
+
+
+\end{thebibliography}

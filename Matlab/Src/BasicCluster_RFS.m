@@ -1,7 +1,7 @@
 function IDX = BasicCluster_RFS(Data, r, K, dist, nFeature)
 %==========================================================================
 % FUNCTION: IDX = BasicCluster_RFS(Data, r, K, dist, nFeature)
-% DESCRIPTION: This function generate basic partition results using K-means as 
+% DESCRIPTION: This function generates basic partition results using K-means as 
 %              a basic clustering algorithm with Random Feature Selection strategy.
 %
 % INPUTS:   Data = a dataset matrix, rows of Data correspond to observations; columns
