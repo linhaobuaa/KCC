@@ -4,8 +4,8 @@ library(R.matlab)
 #print(getwd())
 dataset <- "iris"
 
-data <- read.csv(paste("~/Gitee/KCC/Matlab/Drivers/data/",dataset,".dat",sep=""), header=FALSE)
-data_labels <- read.csv(paste("~/Gitee/KCC/Matlab/Drivers/data/",dataset,"_rclass.dat",sep=""), header=FALSE)
+data <- read.csv(paste("~/KCC/Matlab/Drivers/data/",dataset,".dat",sep=""), header=FALSE)
+data_labels <- read.csv(paste("~/KCC/Matlab/Drivers/data/",dataset,"_rclass.dat",sep=""), header=FALSE)
 #View(data)
 #View(data_labels)
 groundtruth_n_classes <- length(unique(data_labels$V1))
@@ -35,5 +35,5 @@ for (i in 1:num_experiments)
   #View(hard_consensus_result)
   #print(typeof(hard_consensus_result))
 
-  writeMat(paste("~/Gitee/KCC/Matlab/Drivers/baseline_clue_jss05/clue_",dataset,"_consensusresult_",num2str(i),".mat",sep=""), consensus=hard_consensus_result)
+  writeMat(paste("~/KCC/Matlab/Drivers/baseline_clue_jss05/clue_",dataset,"_consensusresult_",num2str(i),".mat",sep=""), consensus=hard_consensus_result)
 }
