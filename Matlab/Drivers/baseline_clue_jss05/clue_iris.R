@@ -35,5 +35,5 @@ for (i in 1:num_experiments)
   #View(hard_consensus_result)
   #print(typeof(hard_consensus_result))
 
-  writeMat(paste("~/KCC/Matlab/Drivers/baseline_clue_jss05/clue_",dataset,"_consensusresult_",num2str(i),".mat",sep=""), consensus=hard_consensus_result)
+  writeMat(paste("~/KCC/Matlab/Drivers/baseline_clue_jss05/clue_",dataset,"_consensusresult_",i,".mat",sep=""), consensus=hard_consensus_result)
 }
