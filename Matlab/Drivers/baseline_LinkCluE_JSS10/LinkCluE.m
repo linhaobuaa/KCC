@@ -50,7 +50,8 @@ if row > 1000
     warning('The number of data points > 1000, it may take long time to process.');
 end
 
-mNames = {'cts', 'srs', 'asrs'};
+%mNames = {'cts', 'srs', 'asrs'};
+mNames = {'cts'};
 dcs = {dcCTS, dcSRS, dcASRS};
 
 if ~ismember(scheme, [1 2])
@@ -96,7 +97,8 @@ end
 
 
 % Evaluate quality of clutering results
-methods = {'CTS-SL','CTS-CL','CTS-AL','SRS-SL','SRS-CL','SRS-AL','ASRS-SL','ASRS-CL','ASRS-AL'};
+%methods = {'CTS-SL','CTS-CL','CTS-AL','SRS-SL','SRS-CL','SRS-AL','ASRS-SL','ASRS-CL','ASRS-AL'};
+methods = {'CTS-SL','CTS-CL','CTS-AL'};
 if ~exist('truelabels')
     V = cleval(X, CR, methods);
 else
