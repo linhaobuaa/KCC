@@ -26,7 +26,7 @@ def test():
     fig.savefig('kmeans_keq2.eps', bbox_inches="tight")
 
 
-def main(dataset):
+def main(dataset, run):
     data = pd.read_csv("../data/%s.dat" % dataset, header=None)
     # print (data)
     data_labels = pd.read_csv("../data/%s_rclass.dat" % dataset, header=None)
@@ -77,10 +77,11 @@ def main(dataset):
 
     consensus_labels = c_MV_arr[-1].labels['majority_vote']
     # print (type(consensus_labels))
-    scipy.io.savemat("openensemble_%s.mat" % dataset, {"consensus": consensus_labels})
+    scipy.io.savemat("openensemble_%s_consensusresult_%s.mat" % (dataset, run), {"consensus": consensus_labels})
 
 
 if __name__ == '__main__':
     dataset = "iris"
-    main(dataset)
+    for run in range(1, 11):
+        main(dataset, run)
 
