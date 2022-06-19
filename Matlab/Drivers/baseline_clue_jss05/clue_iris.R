@@ -1,4 +1,5 @@
 require("clue")
+library(R.matlab)
 
 #print(getwd())
 dataset <- "iris"
@@ -26,10 +27,13 @@ for (i in 1:r)
 }
 
 hens <- cl_ensemble(list = bplist)
-consensus_result <- cl_consensus(hens,method="SE",control = list(k = groundtruth_n_classes, verbose = TRUE))
-hard_consensus_result <- cl_class_ids(consensus_result)
-#View(hard_consensus_result)
-#print(typeof(hard_consensus_result))
+num_experiments <- 10
+for (i in 1:num_experiments)
+{
+  consensus_result <- cl_consensus(hens,method="SE",control = list(k = groundtruth_n_classes, verbose = TRUE))
+  hard_consensus_result <- cl_class_ids(consensus_result)
+  #View(hard_consensus_result)
+  #print(typeof(hard_consensus_result))
 
-library(R.matlab)
-writeMat(paste("~/Gitee/KCC/Matlab/Drivers/baseline_clue_jss05/clue_",dataset,"_consensusresult.mat",sep=""), consensus=hard_consensus_result)
+  writeMat(paste("~/Gitee/KCC/Matlab/Drivers/baseline_clue_jss05/clue_",dataset,"_consensusresult_",num2str(i),".mat",sep=""), consensus=hard_consensus_result)
+}
