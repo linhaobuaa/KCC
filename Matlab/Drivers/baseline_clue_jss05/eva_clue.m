@@ -48,14 +48,14 @@ function eva_clue
 % K = 5;
 
 %%%% for la12 dataset %%%%%
-% datafile = 'la12';
-% subfix = '.mat';
-% K = 6;
+datafile = 'la12';
+subfix = '.mat';
+K = 6;
 
 %%%% for sports dataset %%%%%
-datafile = 'sports';
-subfix = '.mat';
-K = 7;
+% datafile = 'sports';
+% subfix = '.mat';
+% K = 7;
 
 %----------loading data----------
 true_label = load(strcat('../data/',strcat(datafile,'_rclass.dat'))); % load the true label
