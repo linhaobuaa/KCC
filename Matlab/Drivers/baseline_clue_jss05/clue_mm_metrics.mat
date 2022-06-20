@@ -1,0 +1,51 @@
+# Created by Octave 6.1.0, Mon Jun 20 14:36:46 2022 CST <linhao@HaodeMacBook-Pro.local>
+# name: avgAcc
+# type: scalar
+0.5944863149543832
+
+
+# name: avgVIn
+# type: scalar
+0.97207553766178312
+
+
+# name: avgVDn
+# type: scalar
+0.87822718328767202
+
+
+# name: avgRn
+# type: scalar
+0.035306711011005382
+
+
+# name: avgNMI
+# type: scalar
+0.027924567005383559
+
+
+# name: stdAcc
+# type: scalar
+0.00037631229593437408
+
+
+# name: stdVIn
+# type: scalar
+0.00020574511500983343
+
+
+# name: stdVDn
+# type: scalar
+0.0010560544404991385
+
+
+# name: stdRn
+# type: scalar
+0.0002848614541980395
+
+
+# name: stdNMI
+# type: scalar
+0.00020574679674807591
+
+
