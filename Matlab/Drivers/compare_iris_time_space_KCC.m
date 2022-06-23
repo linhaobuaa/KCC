@@ -1,12 +1,7 @@
-function demo_iris
-%==========================================================================
-% FUNCTION: demo
-% DESCRIPTION: A function to illustrate KCC experiments with different
-% utility functions
-%
-% Note: For each dataset and each utility function, the function saves one
-% result matrix for clustering evaluation. Each result matrix contains the
-% average value of Classification Accuracy, Rn, NMI, VIn and VDn.
+clear;
+
+% add lib path
+addpath ../Src/
 
 %----------identify all input arguments----------
 
@@ -70,8 +65,17 @@ r = 100; % number of basic partitions
 w = ones(r, 1); % the weight of each partitions
 
 %%%% distance measure for basic clustering using K-means,
-%%%% dist_of_basic_cluster = 'cosine' for text data set like mm, reviews, la12, sports
-dist_of_basic_cluster = 'sqEuclidean';
+if strcmp(datafile, 'mm')
+    dist_of_basic_cluster = 'cosine'; % for text data set like mm, reviews, la12, sports
+elseif strcmp(datafile, 'reviews')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'la12')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'sports')
+    dist_of_basic_cluster = 'cosine';
+else
+    dist_of_basic_cluster = 'sqEuclidean';
+end
 
 %%%% Select randKi for bp generation, for BasicCluster_RPS only
 %%%% 0: Ki=K, 1: Ki=random,Vector: Ki=randKi
@@ -94,60 +98,37 @@ utilFlag = 1;
 %%%% Para1: U_c, U_H, U_cos, U_Lp
 %%%% Para2: 'std'-standard, 'norm'-normalized
 %%%% Para3: If U_Lp, can be used to set p
-%U_array = {{'U_H','std',[]} {'U_c','std',[]} {'U_cos','std',[]} {'U_lp','std',[5]} {'U_lp','std',[8]}};
-U_array = {{'U_c','std',[]} {'U_cos','std',[]}};
+U_array = {{'U_H','std',[]} {'U_H','norm',[]} {'U_c','std',[]} {'U_c','norm',[]} {'U_cos','std',[]} {'U_cos','norm',[]} {'U_lp','std',[5]} {'U_lp','norm',[5]} {'U_lp','std',[8]} {'U_lp','norm',[8]}};
+%U_array = {{'U_c','std',[]} {'U_cos','std',[]}};
 
+%----------performing consensus function----------
 for uidx = 1:length(U_array)
     tic; % record started computation time in seconds
     %----------loading data----------
     if strcmp(subfix,'.dat')
-        data = load(strcat('../data/',strcat(datafile,'.dat')));
+        data = load(strcat('data/',strcat(datafile,'.dat')));
     elseif strcmp(subfix,'.mat')
-        [sp_mtx, n, m, count] = load_sparse(strcat('../data/',strcat(datafile,'.mat')));
+        [sp_mtx, n, m, count] = load_sparse(strcat('data/',strcat(datafile,'.mat')));
         data = sp_mtx;
     else
         error('start1:UnknownInputDataType','Only .dat and .mat data is supported.');
     end
-    true_label = load(strcat('../data/',strcat(datafile,'_rclass.dat'))); % load the true label
+    true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the true label
 
     %----------using RPS for generating basic partitions----------
     IDX = BasicCluster_RPS(data, r, K, dist_of_basic_cluster, randKi);
 
-    Ki = max(IDX);
-    num_instances = size(data, 1);
-    num_dims = sum(Ki);
-
-    sumKi = zeros(r+1,1);
-    for i=1:r 
-        sumKi(i+1) = sumKi(i)+Ki(i);
-    end
-    binIDX = IDX+repmat(sumKi(1:r)', num_instances, 1);
-
-    full_binIDX = zeros(num_instances, num_dims);
-    for n=1:num_instances
-        full_binIDX(n, binIDX(n, :)) = 1;
-    end
-
     U = U_array{1,uidx};
-    u_dist = U{1,1};
-    if strcmp(u_dist, 'U_c')
-        dist = 'sqeuclidean';
-    else if strcmp(u_dist, 'U_cos')
-        dist = 'cosine';
-    end
-
-    for p = 1:rep
-        kmeans(full_binIDX, K, 'distance', dist, 'emptyaction', 'singleton', 'replicates', 1, 'MaxIter', maxIter);
-    end
-
+    
+    [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag); % run KCC for consensus clustering
+    [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, true_label); % evaluating clustering quality
+    
     t = toc;
     filename = strcat(datafile,strcat('_',lower(U{1,1})));
     filename = strcat(filename,strcat('_',lower(U{1,2})));
     if ~isempty(U{1,3})
         filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
     end
-    filename = strcat(filename,'_time_space.mat');
-    save(filename, 't', 'full_binIDX', 'binIDX', 'sumKi'); % save to result matrix
-end
-
+    filename = strcat(filename,'_time.mat');
+    save(filename, 't'); % save to result matrix
 end
