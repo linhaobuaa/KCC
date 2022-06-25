@@ -62,7 +62,8 @@ dcASRS = 0.8; % the decay factor fot ASRS method
 % [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R, dcASRS, truelabels); %truelabels is optional
 
 % so, the function can be called:
-methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'};
+%methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'};
+methods_names = {'CTS-SL'};
 num_experiments = 1;
 
 Accarray = zeros(length(methods_names), num_experiments); % average Classification Accuracy
