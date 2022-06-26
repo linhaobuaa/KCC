@@ -39,7 +39,7 @@ function [pi_sumbest,pi_index,pi_converge,pi_utility,t] = ...
     
     if nargin>8 % check input arguments
         error('RunKCC:TooManyInputs',...
-            'At most 8 input arguments: IDX,U,K,w,rep,maxIter,minThres,utilFlag.');
+            'At most 8 input arguments: IDX,K,U,w,rep,maxIter,minThres,utilFlag.');
     elseif nargin<8
 		utilFlag = 0;
     elseif nargin<7
