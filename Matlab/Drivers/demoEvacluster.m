@@ -2,7 +2,8 @@ function demoEvacluster
 %==========================================================================
 % FUNCTION: demoEvacluster
 % DESCRIPTION: A function to illustrate how to evaluate clustering solutions
-% when there are no ground truth label information in consensus function
+% when there are no ground truth label information in consensus function, and
+% how to select the best number of clusters for the consensus function.
 %
 %==========================================================================
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
@@ -79,11 +80,15 @@ set(groot, 'DefaultFigureVisible', 'off')
 MaxK = ceil(sqrt(size(data, 1))); % max number of clusters to choose from
 distortions=zeros(MaxK, 1); % vectors storing the Distortion value for each K
 silhouettes=zeros(MaxK, 1); % vectors storing the Silhouette value for each K
+executiontimes=zeros(MaxK, 1); % vectors storing the execution time of running KCC
 for K=1:MaxK % for each K
+    tic; % record started computation time in seconds
     [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag);
+    t = toc;
     [Distortion, Silhouette] = inMeasure(IDX, pi_index, U);
     distortions(K,1) = Distortion;
     silhouettes(K,1) = Silhouette;
+    executiontimes(K,1)=t;
 end
 
 %----------performing elbow method on the Distortion values to find best K---------- 
@@ -92,7 +97,7 @@ PC = cumsum(variance)/(distortions(1)-distortions(end));
 [kindex,~]=find(PC>Cutoff); % find the best index
 bestK_elbow=1+kindex(1,1); % get the optimal number of clusters
 
-%----------visualization of distortions (Elbow Line)---------- 
+%----------visualization of distortions with different K (Elbow Line)---------- 
 figure('visible','off');
 plot(1:MaxK,distortions,'LineWidth',2,'b');
 xlabel('Number of clusters in the consensus function');
@@ -116,7 +121,7 @@ saveas(gcf, filename1)
 %disp(kindex);
 bestK_silhouette = kindex;
 
-%----------visualization of silhouette coefficient---------- 
+%----------visualization of silhouette coefficient with different K---------- 
 figure('visible','off');
 plot(1:MaxK,silhouettes,'LineWidth',2,'b');
 xlabel('Number of clusters in the consensus function');
@@ -134,5 +139,21 @@ if ~isempty(U{1,3})
 end
 filename2 = strcat(filename, '_evacluster_silhouettecoefficient.pdf');
 saveas(gcf, filename2)
+
+%----------visualization of running time with different K----------
+figure('visible','off');
+plot(1:MaxK,executiontimes,'LineWidth',2,'b');
+xlabel('Number of clusters in the consensus function');
+xlim([1 MaxK])
+ylabel('KCC Execution time (in seconds)');
+set(gca,'linewidth',2,'fontsize',14,'color','none');
+grid on;
+filename = strcat(datafile,strcat('_',lower(U{1,1})));
+filename = strcat(filename,strcat('_',lower(U{1,2})));
+if ~isempty(U{1,3})
+    filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
+end
+filename3 = strcat(filename, '_evacluster_executiontime.pdf');
+saveas(gcf, filename3)
 
 end
