@@ -27,7 +27,7 @@ function [Distortion, Silhouette] = inMeasure(IDX, cluster, U)
     if sum(any(IDX==0))>0  % if there is missing values in IDX matrix
         missFlag = 1; % indicates missing values
         missMatrix = IDX>0; % non-zero entries of IDX
-    else % 
+    else %
         missFlag = 0;
         missMatrix = [];
     end
