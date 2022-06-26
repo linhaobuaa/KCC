@@ -112,7 +112,9 @@ filename1 = strcat(filename, '_evacluster_distortionscore.pdf');
 saveas(gcf, filename1)
 
 %----------Choose the K with the maximum silhouette coefficient as the best parameter-------------
-bestK_silhouette = max(silhouettes)
+[best_silhouette, kindex] = max(silhouettes);
+%disp(kindex);
+bestK_silhouette = kindex;
 
 %----------visualization of silhouette coefficient---------- 
 figure('visible','off');
