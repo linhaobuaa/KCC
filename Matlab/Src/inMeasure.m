@@ -21,6 +21,10 @@ function [Distortion, Silhouette] = inMeasure(IDX, cluster, U)
 %
 %==========================================================================
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
+% Note: part of the implementation of elbow method is based on the following:
+% Sebastien De Landtsheer (2022). kmeans_opt 
+% (https://www.mathworks.com/matlabcentral/fileexchange/65823-kmeans_opt), 
+% MATLAB Central File Exchange. 
 %==========================================================================
 
     if sum(any(IDX==0))>0  % if there is missing values in IDX matrix
