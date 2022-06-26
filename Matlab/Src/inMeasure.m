@@ -35,7 +35,7 @@ function [Distortion, Silhouette] = inMeasure(IDX, cluster, U)
     if missFlag == 1
         error('inMeasure:Input IDX contains missing values',...
             'Currently only support complete basic partitions');
-    elseif strcmpi(U{1,2},'std')!=1 
+    elseif strcmpi(U{1,2},'std')~=1 
         error('inMeasure:Unsupported utility type',...
             'Currently only support standard utility function');
     else
