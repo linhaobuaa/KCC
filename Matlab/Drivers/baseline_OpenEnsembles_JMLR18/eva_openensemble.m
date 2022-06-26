@@ -3,9 +3,9 @@ function eva_openensemble
 %----------identify all input arguments----------
 
 %%%% for iris dataset %%%%%
-% datafile = 'iris';
-% subfix = '.dat';
-% K = 3; % number of clusters for consensus clustering
+datafile = 'iris';
+subfix = '.dat';
+K = 3; % number of clusters for consensus clustering
 
 %%%% for breast_w dataset %%%%%
 % datafile = 'breast_w';
@@ -23,9 +23,9 @@ function eva_openensemble
 % K = 10;
 
 %%%% for satimage dataset %%%%%
-% datafile = 'satimage';
-% subfix = '.dat';
-% K = 6;
+%datafile = 'satimage';
+%subfix = '.dat';
+%K = 6;
 
 %%%% for dermatology dataset %%%%%
 % datafile = 'dermatology';
@@ -61,15 +61,15 @@ function eva_openensemble
 true_label = load(strcat('../data/',strcat(datafile,'_rclass.dat'))); % load the true label
 
 % num_experiments = 10;
-num_experiments = 1;
+num_experiments = 10;
 Accarray = zeros(num_experiments, 1);
 Rnarray = zeros(num_experiments, 1);
 NMIarray = zeros(num_experiments, 1);
 VInarray = zeros(num_experiments, 1);
 VDnarray = zeros(num_experiments, 1);
 for i = 1:num_experiments
-    pi_index = getfield(load(strcat(strcat('openensemble_',datafile),'.mat')), 'consensus');
-    % pi_index = getfield(load(strcat(strcat(strcat(strcat('openensemble_',datafile),'_consensusresult_'),num2str(i)),'.mat')), 'consensus');
+    % pi_index = getfield(load(strcat(strcat('openensemble_',datafile),'.mat')), 'consensus');
+    pi_index = getfield(load(strcat(strcat(strcat(strcat('openensemble_',datafile),'_consensusresult_'),num2str(i)),'.mat')), 'consensus');
     pi_index = transpose(pi_index);
     [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, true_label); % evaluating clustering quality
     Accarray(i, 1) = Acc;

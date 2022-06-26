@@ -148,7 +148,34 @@ for uidx = 1:length(U_array)
     if ~isempty(U{1,3})
         filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
     end
-    filename = strcat(filename,'.mat');
-    save(filename,'avgt', 'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
+    filename1 = strcat(filename,'.mat');
+    save(filename1,'avgt', 'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
+    
+    filename2 = strcat(filename,'_clustering_solutions.mat');
+    save(filename2, 'pi_index');
+
+    if strcmp(datafile, 'iris')
+        figure('visible','off');
+        [coeff,score,latent] = pca(data);
+        new_data = score(:, 1:2);
+        sz = 25;
+        subplot(1,2,1);
+        scatter(new_data(:,1),new_data(:,2),sz,true_label,'filled');
+        xlabel('Component 1');
+        ylabel('Component 2');
+        title('Ground truth partition');
+        set(gca,'linewidth',1,'fontsize',8,'color','none');
+        grid on;
+        subplot(1,2,2);
+        scatter(new_data(:,1),new_data(:,2),sz,pi_index,'filled');
+        xlabel('Component 1');
+        ylabel('Component 2');
+        title('Consensus partition');
+        set(gca,'linewidth',1,'fontsize',8,'color','none');
+        grid on;
+        set(groot, 'defaultFigureUnits', 'centimeters', 'defaultFigurePosition', [0 0 16 6]);
+        filename3 = strcat(filename,'_clustering_visualization.pdf');
+        saveas(gcf, filename3)
+    end
 end
 end

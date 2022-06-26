@@ -12,6 +12,8 @@ function demoNumberBP
 % copyright (c) 2021 Hao Lin & Hongfu Liu & Junjie Wu
 %==========================================================================
 
+clear;
+
 % add lib path
 addpath ../Src/
 

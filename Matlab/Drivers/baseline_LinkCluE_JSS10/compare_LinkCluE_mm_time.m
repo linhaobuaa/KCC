@@ -34,7 +34,6 @@ datafile = 'mm';
 subfix = '.mat';
 K = 2;
 
-
 if strcmp(subfix,'.dat')
     X = load(strcat('../data/',strcat(datafile,'.dat')));
 elseif strcmp(subfix,'.mat')

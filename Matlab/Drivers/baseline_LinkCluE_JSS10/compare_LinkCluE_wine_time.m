@@ -29,11 +29,11 @@
 clear;
 tic; % record started computation time in seconds
 
+
 %%%% for wine dataset %%%%%
 datafile = 'wine';
 subfix = '.dat';
 K = 3;
-
 
 if strcmp(subfix,'.dat')
     X = load(strcat('../data/',strcat(datafile,'.dat')));

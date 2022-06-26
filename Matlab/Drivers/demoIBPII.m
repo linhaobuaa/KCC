@@ -11,6 +11,11 @@ function demoIBPII
 % copyright (c) 2021 Hao Lin & Hongfu Liu & Junjie Wu
 %==========================================================================
 
+clear;
+
+% add lib path
+addpath ../Src/
+
 %----------identify all input arguments----------
 %%%% for breast_w dataset %%%%%
 datafile = 'breast_w';
