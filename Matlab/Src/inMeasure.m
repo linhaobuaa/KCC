@@ -51,9 +51,9 @@ function [Distortion, Silhouette] = inMeasure(IDX, cluster, U)
     end
 
    % call silhouette function from the Matlab Statistics and Machine Learning Toolbox
-   s = silhouette(IDX, cluster, distance); 
-   %disp(size(Silhouette));
-   Silhouette = mean(s);
+   S = silhouette(IDX, cluster, distance);
+   %disp(size(S)); % n * 1
+   Silhouette = mean(S);
    %disp(Silhouette);
 
 end
