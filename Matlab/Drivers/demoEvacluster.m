@@ -8,6 +8,8 @@ function demoEvacluster
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
 %==========================================================================
 
+clear;
+
 % add lib path
 addpath ../Src/
 
@@ -16,17 +18,17 @@ addpath ../Src/
 %%%% for iris dataset %%%%%
 datafile = 'iris';
 subfix = '.dat';
-K = 3; % ground truth number of clusters for consensus clustering
+K_BP = 3; % parameter denoting the number of clusters for basic partitions
 
 %%%% for breast_w dataset %%%%%
 % datafile = 'breast_w';
 % subfix = '.dat';
-% K = 2;
+% K_BP = 2;
 
 %%%% for ecoli dataset %%%%%
 % datafile = 'ecoli';
 % subfix = '.dat';
-% K = 6;
+% K_BP = 6;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
@@ -37,7 +39,6 @@ w = ones(r, 1); % the weight of each partitions
 dist_of_basic_cluster = 'sqEuclidean';
 
 %%%% Select randKi for bp generation, for BasicCluster_RPS only
-%%%% 0: Ki=K, 1: Ki=random,Vector: Ki=randKi
 randKi = 1;
 
 %%%% the number of KCC runs %%%%
@@ -56,6 +57,9 @@ utilFlag = 1;
 %%%% utility functions.
 U = {'U_c','std',[]};
 
+%%%% cutoff parameter for elbow method
+Cutoff = 0.95;
+
 %----------loading data----------
 if strcmp(subfix,'.dat')
     data = load(strcat('data/',strcat(datafile,'.dat')));
@@ -68,26 +72,35 @@ end
 true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the true label
 
 %----------using RPS for generating basic partitions----------
-IDX = BasicCluster_RPS(data, r, K, dist_of_basic_cluster, randKi);
+IDX = BasicCluster_RPS(data, r, K_BP, dist_of_basic_cluster, randKi);
 
-[pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag);
-[Distortion, Silhouette] = inMeasure(IDX, pi_index, U);
-
-%{
-%----------performing consensus function----------
+%----------performing consensus function over different K----------
+set(groot, 'DefaultFigureVisible', 'off')
 MaxK = ceil(sqrt(size(data, 1))); % max number of clusters to choose from
-Cutoff = 0.95;
-[bestK,distortions,pi_sumbest,pi_index,pi_converge,pi_utility] = KCCBestK(IDX,MaxK,Cutoff,U,w,rep,maxIter,minThres,utilFlag);
+distortions=zeros(MaxK, 1); % vectors storing the Distortion value for each K
+silhouettes=zeros(MaxK, 1); % vectors storing the Silhouette value for each K
+for K=1:MaxK % for each K
+    [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag);
+    [Distortion, Silhouette] = inMeasure(IDX, pi_index, U);
+    distortions(K,1) = Distortion;
+    silhouettes(K,1) = Silhouette;
+end
 
+%----------performing elbow method on the Distortion values to find best K---------- 
+variance = distortions(1:end-1)-distortions(2:end); % calculate variance
+PC = cumsum(variance)/(distortions(1)-distortions(end));
+[kindex,~]=find(PC>Cutoff); % find the best index
+bestK_elbow=1+kindex(1,1); % get the optimal number of clusters
 
+%----------visualization of distortions (Elbow Line)---------- 
 figure('visible','off');
 plot(1:MaxK,distortions,'LineWidth',2,'b');
 xlabel('Number of clusters in the consensus function');
 xlim([1 MaxK])
-ylabel('Disortion score');
+ylabel('Distortion score');
 hold on;
-plot([bestK bestK],[0 distortions(bestK,1)],'LineWidth',2,'r');
-text(bestK,distortions(bestK,1),['\leftarrow best K=' num2str(bestK)],'Color','red')
+plot([bestK_elbow bestK_elbow],[0 distortions(bestK_elbow,1)],'LineWidth',2,'r');
+text(bestK_elbow,distortions(bestK_elbow,1),['\leftarrow best K=' num2str(bestK_elbow)],'Color','red')
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
 filename = strcat(datafile,strcat('_',lower(U{1,1})));
@@ -95,8 +108,29 @@ filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
 end
-filename1 = strcat(filename, '_evacluster_disortionscore.pdf');
+filename1 = strcat(filename, '_evacluster_distortionscore.pdf');
 saveas(gcf, filename1)
-%}
+
+%----------Choose the K with the maximum silhouette coefficient as the best parameter-------------
+bestK_silhouette = max(silhouettes)
+
+%----------visualization of silhouette coefficient---------- 
+figure('visible','off');
+plot(1:MaxK,silhouettes,'LineWidth',2,'b');
+xlabel('Number of clusters in the consensus function');
+xlim([1 MaxK])
+ylabel('Silhouette coefficient');
+hold on;
+plot([bestK_silhouette bestK_silhouette],[0 silhouettes(bestK_silhouette,1)],'LineWidth',2,'r');
+text(bestK_silhouette,silhouettes(bestK_silhouette,1),['\leftarrow best K=' num2str(bestK_silhouette)],'Color','red')
+set(gca,'linewidth',2,'fontsize',14,'color','none');
+grid on;
+filename = strcat(datafile,strcat('_',lower(U{1,1})));
+filename = strcat(filename,strcat('_',lower(U{1,2})));
+if ~isempty(U{1,3})
+    filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
+end
+filename2 = strcat(filename, '_evacluster_silhouettecoefficient.pdf');
+saveas(gcf, filename2)
 
 end
