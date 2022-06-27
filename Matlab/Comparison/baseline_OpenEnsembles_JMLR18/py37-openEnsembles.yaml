@@ -1,0 +1,29 @@
+package:
+  name: openensembles 
+  version: "1.1.1"
+
+source:
+  git_rev: OpenEnsembles-v1.1.1
+  git_url: https://github.com/NaegleLab/OpenEnsembles
+
+requirements:
+  build:
+    - python=3.7
+    - ipykernel
+    - jupyter
+    - nbconda
+    - pandas=1.1.*
+    - numpy=1.19.*
+    - scikit-learn
+    - scipy=1.5.*
+    - networkx=2.5.*
+    - matplotlib=3.3.*
+    - hdbscan
+
+  run:
+    - python
+
+about:
+  home: https://github.com/NaegleLab/OpenEnsembles
+  license: GNU General Public License v3
+  license_file: license.txt
