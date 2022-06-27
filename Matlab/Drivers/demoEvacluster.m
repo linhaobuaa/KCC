@@ -22,14 +22,14 @@ addpath ../Src/
 % K_BP = 3; % parameter denoting the number of clusters for basic partitions
 
 %%%% for breast_w dataset %%%%%
-datafile = 'breast_w';
-subfix = '.dat';
-K_BP = 2;
+% datafile = 'breast_w';
+% subfix = '.dat';
+% K_BP = 2;
 
 %%%% for ecoli dataset %%%%%
-% datafile = 'ecoli';
-% subfix = '.dat';
-% K_BP = 6;
+datafile = 'ecoli';
+subfix = '.dat';
+K_BP = 6;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
