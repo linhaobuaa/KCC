@@ -99,15 +99,16 @@ bestK_elbow=1+kindex(1,1); % get the optimal number of clusters
 
 %----------visualization of distortions with different K (Elbow Line)---------- 
 figure('visible','off');
-plot(1:MaxK,distortions,'LineWidth',2,'b');
+plot(1:MaxK,distortions,'b','LineWidth',2);
 xlabel('Number of clusters in the consensus function');
 xlim([1 MaxK])
 ylabel('Distortion score');
 hold on;
-plot([bestK_elbow bestK_elbow],[0 distortions(bestK_elbow,1)],'LineWidth',2,'r');
+plot([bestK_elbow bestK_elbow],[0 distortions(bestK_elbow,1)],'r','LineWidth',2);
 text(bestK_elbow,distortions(bestK_elbow,1),['\leftarrow best K=' num2str(bestK_elbow)],'Color','red')
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
+set(gca,'GridLineStyle',':');
 filename = strcat(datafile,strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
@@ -123,15 +124,16 @@ bestK_silhouette = kindex;
 
 %----------visualization of silhouette coefficient with different K---------- 
 figure('visible','off');
-plot(1:MaxK,silhouettes,'LineWidth',2,'b');
+plot(1:MaxK,silhouettes,'b','LineWidth',2);
 xlabel('Number of clusters in the consensus function');
 xlim([1 MaxK])
 ylabel('Silhouette coefficient');
 hold on;
-plot([bestK_silhouette bestK_silhouette],[0 silhouettes(bestK_silhouette,1)],'LineWidth',2,'r');
+plot([bestK_silhouette bestK_silhouette],[0 silhouettes(bestK_silhouette,1)],'r','LineWidth',2);
 text(bestK_silhouette,silhouettes(bestK_silhouette,1),['\leftarrow best K=' num2str(bestK_silhouette)],'Color','red')
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
+set(gca,'GridLineStyle',':');
 filename = strcat(datafile,strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
@@ -142,12 +144,13 @@ saveas(gcf, filename2)
 
 %----------visualization of running time with different K----------
 figure('visible','off');
-plot(1:MaxK,executiontimes,'LineWidth',2,'b');
+plot(1:MaxK,executiontimes,'b','LineWidth',2);
 xlabel('Number of clusters in the consensus function');
 xlim([1 MaxK])
 ylabel('KCC Execution time (in seconds)');
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
+set(gca,'GridLineStyle',':');
 filename = strcat(datafile,strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
