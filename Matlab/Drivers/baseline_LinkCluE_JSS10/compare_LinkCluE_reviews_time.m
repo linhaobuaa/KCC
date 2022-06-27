@@ -27,7 +27,7 @@
 % identify all input arguments
 
 clear;
-tic; % record started computation time in seconds
+start = tic; % record started computation time in seconds
 
 %%%% for reviews dataset %%%%%
 datafile = 'reviews';
@@ -62,12 +62,8 @@ dcASRS = 0.8; % the decay factor fot ASRS method
 % [CR,V] = LinkCluE(X, M, k, scheme, K, dcCTS, dcSRS, R, dcASRS, truelabels); %truelabels is optional
 
 % so, the function can be called:
-<<<<<<< HEAD
 %methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'};
 methods_names = {'CTS-SL'};
-=======
-methods_names = {'CTS-SL', 'CTS-CL', 'CTS-AL', 'SRS-SL', 'SRS-CL', 'SRS-AL', 'ASRS-SL', 'ASRS-CL', 'ASRS-AL'};
->>>>>>> 9e41510499e27a1569d08b4e5c6cf60a6a6ab57e
 num_experiments = 1;
 
 Accarray = zeros(length(methods_names), num_experiments); % average Classification Accuracy
@@ -88,7 +84,7 @@ for num = 1 : num_experiments
     end
 end
 
-t=toc;
+t=toc(start);
 
 filename = strcat(strcat(strcat(strcat(strcat('LinkCluE_', datafile), '_'), char(methods_names(me))), '_time'), '.mat');
 save(filename,'t'); % save average performance to result matrix
