@@ -9,7 +9,7 @@ function demoNumberBP
 % partitions and each result matrix contains the average value of Rn.
 %
 %==========================================================================
-% copyright (c) 2021 Hao Lin & Hongfu Liu & Junjie Wu
+% copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
 %==========================================================================
 
 clear;
@@ -19,9 +19,9 @@ addpath ../Src/
 
 %----------identify all input arguments----------
 %%%% for breast_w dataset %%%%%
-datafile = 'breast_w';
-subfix = '.dat';
-K = 2;
+% datafile = 'breast_w';
+% subfix = '.dat';
+% K = 2;
 
 %%%% for mm dataset %%%%%
 % datafile = 'mm';
@@ -29,12 +29,12 @@ K = 2;
 % K = 2;
 
 %%%% for reviews dataset %%%%%
-% datafile = 'reviews';
-% subfix = '.mat';
-% K = 5;
+datafile = 'reviews';
+subfix = '.mat';
+K = 5;
 
 %%%% parameters of basic partitionings %%%%
-r_array = [10 20 30 40 50 60 70 80 90]; % number of basic partitions sampled from 100 basic partitions, r=10, 20, 30,...,90
+r_array = [10 20 30 40 50 60 70 80 90]; % number of basic partitions sampled from 1000 basic partitions, r=10, 20, 30,...,90
 sampletimes = 100; % repeated sampling times
 
 %%%% distance measure for basic clustering using K-means,
@@ -72,14 +72,14 @@ else
 end
 true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the true label
 
-%----------generating 100 basic partitions----------
-IDX = BasicCluster_RPS(data, 100, K, dist_of_basic_cluster, randKi);
+%----------generating 1000 basic partitions----------
+IDX = BasicCluster_RPS(data, 1000, K, dist_of_basic_cluster, randKi);
 
-%----------for each r, repeated sampling 100 times from 100 basic partitions and do KCC on each sample----------
+%----------for each r, repeated sampling 100 times from 1000 basic partitions and do KCC on each sample----------
 for r = r_array
     w = ones(r, 1); % the weight of each partitions
     for sampletime = 1: sampletimes
-        newIDX = IDX(:, randsample(100, r)); % sample from 100 basic partitions
+        newIDX = IDX(:, randsample(1000, r)); % sample from 1000 basic partitions
 
         %%%% on each sample, repeat KCC in 10 times run to obtain average performance %%%%
         avgRn = 0; % average Rn
