@@ -17,9 +17,9 @@ addpath ../Src/
 %----------identify all input arguments----------
 
 %%%% for iris dataset %%%%%
-% datafile = 'iris';
-% subfix = '.dat';
-% K_BP = 3; % parameter denoting the number of clusters for basic partitions
+datafile = 'iris';
+subfix = '.dat';
+K_BP = 3; % parameter denoting the number of clusters for basic partitions
 
 %%%% for breast_w dataset %%%%%
 % datafile = 'breast_w';
@@ -27,9 +27,9 @@ addpath ../Src/
 % K_BP = 2;
 
 %%%% for ecoli dataset %%%%%
-datafile = 'ecoli';
-subfix = '.dat';
-K_BP = 6;
+% datafile = 'ecoli';
+% subfix = '.dat';
+% K_BP = 6;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
