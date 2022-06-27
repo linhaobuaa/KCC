@@ -43,16 +43,6 @@ else
 end
 truelabels = load(strcat('../data/',strcat(datafile,'_rclass.dat'))); % load the true label
 
-%%%% for Four-Gaussian dataset %%%%%
-% X = load ('SampleData/FGD.csv'); %import Four-Gaussian data
-% K = 4; % the number of clusters in the final clustering (using in consensus functions)
-% truelabels = load ('SampleData/FGT.csv'); %import Four-Gaussian truelabels
-
-%%%% for Leukemia dataset %%%%%
-% X = load ('SampleData\LD.csv'); %import Leukemia data
-% K = 2; % the number of clusters in the final clustering (using in consensus functions)
-% truelabels = load ('SampleData\LT.csv'); %import Leukemia truelabels
-
 M = 100; % the number of clusterings in ensemble
 
 k = ceil(sqrt(size(X,1))); % the number of clusters in base clusterings

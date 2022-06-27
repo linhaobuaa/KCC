@@ -27,7 +27,7 @@
 % identify all input arguments
 
 clear;
-tic; % record started computation time in seconds
+start=tic; % record started computation time in seconds
 
 %%%% for iris dataset %%%%%
 datafile = 'iris';
@@ -84,7 +84,7 @@ for num = 1 : num_experiments
     end
 end
 
-t=toc;
+t=toc(start);
 
 filename = strcat(strcat(strcat(strcat(strcat('LinkCluE_', datafile), '_'), char(methods_names(me))), '_time'), '.mat');
 save(filename,'t'); % save average performance to result matrix
