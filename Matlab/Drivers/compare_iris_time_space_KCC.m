@@ -103,7 +103,7 @@ U_array = {{'U_H','std',[]} {'U_H','norm',[]} {'U_c','std',[]} {'U_c','norm',[]}
 
 %----------performing consensus function----------
 for uidx = 1:length(U_array)
-    start = tic; % record started computation time in seconds
+    start=tic; % record started computation time in seconds
     %----------loading data----------
     if strcmp(subfix,'.dat')
         data = load(strcat('data/',strcat(datafile,'.dat')));
