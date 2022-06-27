@@ -17,14 +17,14 @@ addpath ../Src/
 %----------identify all input arguments----------
 
 %%%% for iris dataset %%%%%
-datafile = 'iris';
-subfix = '.dat';
-K_BP = 3; % parameter denoting the number of clusters for basic partitions
+% datafile = 'iris';
+% subfix = '.dat';
+% K_BP = 3; % parameter denoting the number of clusters for basic partitions
 
 %%%% for breast_w dataset %%%%%
-% datafile = 'breast_w';
-% subfix = '.dat';
-% K_BP = 2;
+datafile = 'breast_w';
+subfix = '.dat';
+K_BP = 2;
 
 %%%% for ecoli dataset %%%%%
 % datafile = 'ecoli';
