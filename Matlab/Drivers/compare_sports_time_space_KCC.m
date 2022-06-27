@@ -82,7 +82,7 @@ end
 randKi = 1;
 
 %%%% the number of KCC runs %%%%
-rep = 10; 
+rep = 1; 
 
 %%%% the maximum iteration for KCC convergence %%%%
 maxIter = 40;
@@ -103,7 +103,7 @@ U_array = {{'U_H','std',[]} {'U_H','norm',[]} {'U_c','std',[]} {'U_c','norm',[]}
 
 %----------performing consensus function----------
 for uidx = 1:length(U_array)
-    tic; % record started computation time in seconds
+    start=tic; % record started computation time in seconds
     %----------loading data----------
     if strcmp(subfix,'.dat')
         data = load(strcat('data/',strcat(datafile,'.dat')));
@@ -123,7 +123,7 @@ for uidx = 1:length(U_array)
     [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag); % run KCC for consensus clustering
     [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, true_label); % evaluating clustering quality
     
-    t = toc;
+    t = toc(start);
     filename = strcat(datafile,strcat('_',lower(U{1,1})));
     filename = strcat(filename,strcat('_',lower(U{1,2})));
     if ~isempty(U{1,3})
