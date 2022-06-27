@@ -108,6 +108,7 @@ plot([bestK_elbow bestK_elbow],[0 distortions(bestK_elbow,1)],'r','LineWidth',2)
 text(bestK_elbow,distortions(bestK_elbow,1),['\leftarrow best K=' num2str(bestK_elbow)],'Color','red')
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
+set(gca,'GridLineStyle',':','GridColor','k','GridAlpha',1);
 filename = strcat(datafile,strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
@@ -132,6 +133,7 @@ plot([bestK_silhouette bestK_silhouette],[0 silhouettes(bestK_silhouette,1)],'r'
 text(bestK_silhouette,silhouettes(bestK_silhouette,1),['\leftarrow best K=' num2str(bestK_silhouette)],'Color','red')
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
+set(gca,'GridLineStyle',':','GridColor','k','GridAlpha',1);
 filename = strcat(datafile,strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
@@ -148,6 +150,7 @@ xlim([1 MaxK])
 ylabel('KCC Execution time (in seconds)');
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
+set(gca,'GridLineStyle',':','GridColor','k','GridAlpha',1);
 filename = strcat(datafile,strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
