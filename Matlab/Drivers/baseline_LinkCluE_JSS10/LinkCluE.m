@@ -98,7 +98,7 @@ end
 
 % Evaluate quality of clutering results
 %methods = {'CTS-SL','CTS-CL','CTS-AL','SRS-SL','SRS-CL','SRS-AL','ASRS-SL','ASRS-CL','ASRS-AL'};
-methods = {'CTS-SL','CTS-CL','CTS-AL'};
+methods = {'CTS-SL'};
 if ~exist('truelabels')
     V = cleval(X, CR, methods);
 else
