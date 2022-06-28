@@ -38,8 +38,17 @@ r_array = [10 20 30 40 50 60 70 80 90]; % number of basic partitions sampled fro
 sampletimes = 100; % repeated sampling times
 
 %%%% distance measure for basic clustering using K-means,
-%%%% dist_of_basic_cluster = 'cosine' for text data set like mm, reviews, la12, sports
-dist_of_basic_cluster = 'sqEuclidean';
+if strcmp(datafile, 'mm')
+    dist_of_basic_cluster = 'cosine'; % for text data set like mm, reviews, la12, sports
+elseif strcmp(datafile, 'reviews')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'la12')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'sports')
+    dist_of_basic_cluster = 'cosine';
+else
+    dist_of_basic_cluster = 'sqEuclidean';
+end
 
 %%%% Select randKi for bp generation, for BasicCluster_RPS only
 %%%% 0: Ki=K, 1: Ki=random,Vector: Ki=randKi
@@ -75,6 +84,9 @@ true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the tr
 %----------generating 1000 basic partitions----------
 IDX = BasicCluster_RPS(data, 1000, K, dist_of_basic_cluster, randKi);
 
+output_foldername='ResultDemoNumberBP/';
+mkdir output_foldername;
+
 %----------for each r, repeated sampling 100 times from 1000 basic partitions and do KCC on each sample----------
 for r = r_array
     w = ones(r, 1); % the weight of each partitions
@@ -89,7 +101,7 @@ for r = r_array
             avgRn = avgRn + Rn;
         end
         avgRn = avgRn / num;
-        filename = strcat(datafile,strcat('_',lower(U{1,1})));
+        filename = strcat([output_foldername '/' datafile],strcat('_',lower(U{1,1})));
         filename = strcat(filename,strcat('_',lower(U{1,2})));
         if ~isempty(U{1,3})
             filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
