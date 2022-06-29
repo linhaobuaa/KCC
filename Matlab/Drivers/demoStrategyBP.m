@@ -42,8 +42,17 @@ w = ones(r, 1); % the weight of each partitions
 
 
 %%%% distance measure for basic clustering using K-means,
-%%%% dist_of_basic_cluster = 'cosine' for text data set like mm, reviews, la12, sports
-dist_of_basic_cluster = 'sqEuclidean';
+if strcmp(datafile, 'mm')
+    dist_of_basic_cluster = 'cosine'; % for text data set like mm, reviews, la12, sports
+elseif strcmp(datafile, 'reviews')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'la12')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'sports')
+    dist_of_basic_cluster = 'cosine';
+else
+    dist_of_basic_cluster = 'sqEuclidean';
+end
 
 %%%% the number of KCC runs %%%%
 rep = 10; 
@@ -72,6 +81,9 @@ else
 end
 true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the true label
 
+output_foldername='ResultDemoStrategyBP/';
+mkdir ResultDemoStrategyBP;
+
 for nFeature = nFeature_array
     %----------using RFS for generating basic partitions----------
     IDX = BasicCluster_RFS(data,r,K,dist_of_basic_cluster,nFeature);
@@ -85,7 +97,7 @@ for nFeature = nFeature_array
         avgRn = avgRn + Rn;
     end
     avgRn = avgRn / num;
-    filename = strcat(datafile,strcat('_',lower(U{1,1})));
+    filename = strcat([output_foldername '/' datafile],strcat('_',lower(U{1,1})));
     filename = strcat(filename,strcat('_',lower(U{1,2})));
     if ~isempty(U{1,3})
         filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));

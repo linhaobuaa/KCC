@@ -85,7 +85,7 @@ true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the tr
 IDX = BasicCluster_RPS(data, 1000, K, dist_of_basic_cluster, randKi);
 
 output_foldername='ResultDemoNumberBP/';
-mkdir output_foldername;
+mkdir ResultDemoNumberBP;
 
 %----------for each r, repeated sampling 100 times from 1000 basic partitions and do KCC on each sample----------
 for r = r_array
