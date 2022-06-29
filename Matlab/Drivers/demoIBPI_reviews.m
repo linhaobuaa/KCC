@@ -1,8 +1,8 @@
-function demoIBPII
+function demoIBPI
 %==========================================================================
-% FUNCTION: demoStratgyIBPII
+% FUNCTION: demoStratgyIBPI
 % DESCRIPTION: A function to illustrate KCC experiments with 
-% strategy-II for generating incomplete basic partitions
+% strategy-I for generating incomplete basic partitions
 %
 % Note: For each dataset and each missing rate rr, the function saves one result matrix for 
 % clustering evaluation. Each result matrix contains the average value of Rn.
@@ -18,9 +18,9 @@ addpath ../Src/
 
 %----------identify all input arguments----------
 %%%% for breast_w dataset %%%%%
-datafile = 'breast_w';
-subfix = '.dat';
-K = 2;
+% datafile = 'breast_w';
+% subfix = '.dat';
+% K = 2;
 
 %%%% for dermatology dataset %%%%%
 % datafile = 'dermatology';
@@ -31,6 +31,11 @@ K = 2;
 % datafile = 'wine';
 % subfix = '.dat';
 % K = 3;
+
+%%%% for reviews dataset %%%%%
+datafile = 'reviews';
+subfix = '.mat';
+K = 5;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
@@ -81,18 +86,17 @@ else
 end
 true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the true label
 
-output_foldername='ResultDemoIBPII/';
-mkdir ResultDemoIBPII;
+output_foldername='ResultDemoIBPI/';
+mkdir ResultDemoIBPI;
 
-%----------using Strategy-II for generating incomplete basic partitions and do KCC----------
-IDX = BasicCluster_RPS(data,r,K,dist_of_basic_cluster,randKi);
+%----------using Strategy-I for generating incomplete basic partitions and do KCC----------
 for percent = percent_array
-    newIDX = addmissing(IDX,percent);
+    IDX = BasicCluster_RPS_missing(data,r,K,dist_of_basic_cluster,randKi,percent);
     
     %%%% For each missing rate, repeat KCC in 10 times run to obtain average performance %%%%
     avgRn = 0; % average Rn
     for num = 1 : 10
-        [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(newIDX,K,U,w,rep,maxIter,minThres,utilFlag); % run KCC for consensus clustering
+        [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag); % run KCC for consensus clustering
         [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, true_label); % evaluating clustering quality
         avgRn = avgRn + Rn;
     end

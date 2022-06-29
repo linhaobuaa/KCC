@@ -18,14 +18,14 @@ addpath ../Src/
 
 %----------identify all input arguments----------
 %%%% for breast_w dataset %%%%%
-datafile = 'breast_w';
-subfix = '.dat';
-K = 2;
+% datafile = 'breast_w';
+% subfix = '.dat';
+% K = 2;
 
 %%%% for dermatology dataset %%%%%
-% datafile = 'dermatology';
-% subfix = '.dat';
-% K = 6;
+datafile = 'dermatology';
+subfix = '.dat';
+K = 6;
 
 %%%% for wine dataset %%%%%
 % datafile = 'wine';

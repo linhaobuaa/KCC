@@ -18,9 +18,9 @@ addpath ../Src/
 
 %----------identify all input arguments----------
 %%%% for breast_w dataset %%%%%
-datafile = 'breast_w';
-subfix = '.dat';
-K = 2;
+% datafile = 'breast_w';
+% subfix = '.dat';
+% K = 2;
 
 %%%% for dermatology dataset %%%%%
 % datafile = 'dermatology';
@@ -31,6 +31,11 @@ K = 2;
 % datafile = 'wine';
 % subfix = '.dat';
 % K = 3;
+
+%%%% for pendigits dataset %%%%%
+datafile = 'pendigits';
+subfix = '.dat';
+K = 10;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
