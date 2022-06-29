@@ -1,4 +1,4 @@
-function demoStrategyBP
+function demoStrategyBP_iris
 %==========================================================================
 % FUNCTION: demoStratgyBP
 % DESCRIPTION: A function to illustrate KCC experiments with RFS
