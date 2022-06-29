@@ -18,11 +18,11 @@ addpath ../Src/
 
 %----------identify all input arguments----------
 
-%%%% for iris dataset %%%%%
-datafile = 'iris';
+%%%% for breast_w dataset %%%%%
+datafile = 'breast_w';
 subfix = '.dat';
-K = 3;
-nFeature_array = [2 3 4];
+K = 2;
+nFeature_array = [2:9];
 
 %%%% for ecoli dataset %%%%%
 % datafile = 'ecoli';
