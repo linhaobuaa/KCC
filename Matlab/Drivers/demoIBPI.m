@@ -38,8 +38,17 @@ w = ones(r, 1); % the weight of each partitions
 percent_array = [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]; % percent of missing rate for incomplete basic partitions
 
 %%%% distance measure for basic clustering using K-means,
-%%%% dist_of_basic_cluster = 'cosine' for text data set like mm, reviews, la12, sports
-dist_of_basic_cluster = 'sqEuclidean';
+if strcmp(datafile, 'mm')
+    dist_of_basic_cluster = 'cosine'; % for text data set like mm, reviews, la12, sports
+elseif strcmp(datafile, 'reviews')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'la12')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'sports')
+    dist_of_basic_cluster = 'cosine';
+else
+    dist_of_basic_cluster = 'sqEuclidean';
+end
 
 %%%% Select randKi for bp generation, for BasicCluster_RPS only
 %%%% 0: Ki=K, 1: Ki=random,Vector: Ki=randKi

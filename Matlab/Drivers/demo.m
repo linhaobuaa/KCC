@@ -77,8 +77,17 @@ r = 100; % number of basic partitions
 w = ones(r, 1); % the weight of each partitions
 
 %%%% distance measure for basic clustering using K-means,
-%%%% dist_of_basic_cluster = 'cosine' for text data set like mm, reviews, la12, sports
-dist_of_basic_cluster = 'sqEuclidean';
+if strcmp(datafile, 'mm')
+    dist_of_basic_cluster = 'cosine'; % for text data set like mm, reviews, la12, sports
+elseif strcmp(datafile, 'reviews')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'la12')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'sports')
+    dist_of_basic_cluster = 'cosine';
+else
+    dist_of_basic_cluster = 'sqEuclidean';
+end
 
 %%%% Select randKi for bp generation, for BasicCluster_RPS only
 %%%% 0: Ki=K, 1: Ki=random,Vector: Ki=randKi
