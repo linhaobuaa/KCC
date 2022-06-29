@@ -1,4 +1,4 @@
-function demoStrategyBP
+function demoStrategyBP_iris
 %==========================================================================
 % FUNCTION: demoStratgyBP
 % DESCRIPTION: A function to illustrate KCC experiments with RFS
@@ -48,8 +48,17 @@ w = ones(r, 1); % the weight of each partitions
 
 
 %%%% distance measure for basic clustering using K-means,
-%%%% dist_of_basic_cluster = 'cosine' for text data set like mm, reviews, la12, sports
-dist_of_basic_cluster = 'sqEuclidean';
+if strcmp(datafile, 'mm')
+    dist_of_basic_cluster = 'cosine'; % for text data set like mm, reviews, la12, sports
+elseif strcmp(datafile, 'reviews')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'la12')
+    dist_of_basic_cluster = 'cosine';
+elseif strcmp(datafile, 'sports')
+    dist_of_basic_cluster = 'cosine';
+else
+    dist_of_basic_cluster = 'sqEuclidean';
+end
 
 %%%% the number of KCC runs %%%%
 rep = 10; 
