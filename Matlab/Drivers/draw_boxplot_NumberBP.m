@@ -47,7 +47,7 @@ p2=Rn_mm;
 p3=Rn_reviews;
 
 h1=figure('visible','off');
-boxplot(p1,'widths',0.1); % 
+boxplot(p1); % 'widths',0.25
 xlabel('#BPs');
 ylabel('R_n');
 xlim([0.5 9.5]);
@@ -58,7 +58,7 @@ yticksvalues=[0, 2, 4, 6, 8, 10];
 yticks(yticksvalues/10);
 yticklabels([0:0.2:1.0]);
 %set(gca,'Fontname','times new Roman','FontWeight','bold');
-set(gca,'linewidth',1,'fontsize',14,'color','none');
+set(gca,'linewidth',1.5,'fontsize',14,'color','none');
 saveas(h1,'bp_breast_w.eps','epsc'); 
 
 h2=figure('visible','off');
