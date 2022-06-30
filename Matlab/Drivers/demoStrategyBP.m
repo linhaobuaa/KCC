@@ -36,6 +36,30 @@ nFeature_array = [2 3 4 5 6 7]; % the number of features selected, for BasicClus
 % K = 3;
 % nFeature_array = [2 3 4 5 6 7 8 9 10 11 12 13];
 
+%%%% for satimage dataset %%%%%
+% datafile = 'satimage';
+% subfix = '.dat';
+% K = 6;
+% nFeature_array = [2:36];
+
+%%%% for pendigits dataset %%%%%
+% datafile = 'pendigits';
+% subfix = '.dat';
+% K = 10;
+% nFeature_array = [2:16];
+
+%%%% for iris dataset %%%%%
+% datafile = 'iris';
+% subfix = '.dat';
+% K = 3;
+% nFeature_array = [2 3 4];
+
+%%%% for breast_w dataset %%%%%
+% datafile = 'breast_w';
+% subfix = '.dat';
+% K = 2;
+% nFeature_array = [2:9];
+
 %%%% parameters of basic partitions %%%%
 r = 100; % number of basic partitions
 w = ones(r, 1); % the weight of each partitions

@@ -19,14 +19,14 @@ addpath ../Src/
 
 %----------identify all input arguments----------
 %%%% for breast_w dataset %%%%%
-% datafile = 'breast_w';
-% subfix = '.dat';
-% K = 2;
+datafile = 'breast_w';
+subfix = '.dat';
+K = 2;
 
 %%%% for mm dataset %%%%%
-datafile = 'mm';
-subfix = '.mat';
-K = 2;
+% datafile = 'mm';
+% subfix = '.mat';
+% K = 2;
 
 %%%% for reviews dataset %%%%%
 % datafile = 'reviews';

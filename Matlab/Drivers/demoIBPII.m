@@ -17,10 +17,26 @@ clear;
 addpath ../Src/
 
 %----------identify all input arguments----------
-%%%% for breast_w dataset %%%%%
-datafile = 'breast_w';
+
+%%%% for iris dataset %%%%%
+datafile = 'iris';
 subfix = '.dat';
-K = 2;
+K = 3;
+
+%%%% for ecoli dataset %%%%%
+% datafile = 'ecoli';
+% subfix = '.dat';
+% K = 6;
+
+%%%% for breast_w dataset %%%%%
+% datafile = 'breast_w';
+% subfix = '.dat';
+% K = 2;
+
+%%%% for pendigits dataset %%%%%
+% datafile = 'pendigits';
+% subfix = '.dat';
+% K = 10;
 
 %%%% for dermatology dataset %%%%%
 % datafile = 'dermatology';
@@ -31,6 +47,31 @@ K = 2;
 % datafile = 'wine';
 % subfix = '.dat';
 % K = 3;
+
+%%%% for satimage dataset %%%%%
+% datafile = 'satimage';
+% subfix = '.dat';
+% K = 6;
+
+%%%% for sports dataset %%%%%
+% datafile = 'sports';
+% subfix = '.mat';
+% K = 7;
+
+%%%% for la12 dataset %%%%%
+% datafile = 'la12';
+% subfix = '.mat';
+% K = 6;
+
+%%%% for mm dataset %%%%%
+% datafile = 'mm';
+% subfix = '.mat';
+% K = 2;
+
+%%%% for reviews dataset %%%%%
+% datafile = 'reviews';
+% subfix = '.mat';
+% K = 5;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
