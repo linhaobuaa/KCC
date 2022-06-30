@@ -59,7 +59,7 @@ yticks(yticksvalues/10);
 yticklabels([0:0.2:1.0]);
 %set(gca,'Fontname','times new Roman','FontWeight','bold');
 set(gca,'linewidth',2,'fontsize',14,'color','none');
-axis tight;
+format compact;
 saveas(h1,'bp_breast_w.eps','epsc'); 
 
 h2=figure('visible','off');
@@ -75,7 +75,7 @@ yticks(yticksvalues/10);
 yticklabels([0:0.2:1.0]);
 %set(gca,'Fontname','times new Roman','FontWeight','bold');
 set(gca,'linewidth',2,'fontsize',14,'color','none');
-axis tight;
+format compact;
 saveas(h2,'bp_mm.eps','epsc'); 
 
 h3=figure('visible','off');
@@ -91,5 +91,5 @@ yticks(yticksvalues/10);
 yticklabels([0:0.2:1.0]);
 %set(gca,'Fontname','times new Roman','FontWeight','bold');
 set(gca,'linewidth',2,'fontsize',14,'color','none');
-axis tight;
+format compact;
 saveas(h3,'bp_reviews.eps','epsc');
