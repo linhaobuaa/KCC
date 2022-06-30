@@ -47,7 +47,8 @@ p2=Rn_mm;
 p3=Rn_reviews;
 
 h1=figure('visible','off');
-boxplot(p1); % 'widths',0.25
+bh1=boxplot(p1); % 'widths',0.25
+set(bh1,'LineWidth', 2);
 xlabel('#BPs');
 ylabel('R_n');
 xlim([0.5 9.5]);
@@ -63,7 +64,8 @@ set(gca,'linewidth',2,'fontsize',14,'color','none');
 saveas(h1,'bp_breast_w.eps','epsc'); 
 
 h2=figure('visible','off');
-boxplot(p2); % ,'widths',0.25
+bh2=boxplot(p2); % ,'widths',0.25
+set(bh2,'LineWidth', 2);
 xlabel('#BPs');
 ylabel('R_n');
 xlim([0.5 9.5]);
@@ -79,7 +81,8 @@ set(gca,'linewidth',2,'fontsize',14,'color','none');
 saveas(h2,'bp_mm.eps','epsc'); 
 
 h3=figure('visible','off');
-boxplot(p3); % ,'widths',0.25
+bh3=boxplot(p3); % ,'widths',0.25
+set(bh3,'LineWidth', 2);
 xlabel('#BPs');
 ylabel('R_n');
 xlim([0.5 9.5]);
