@@ -47,7 +47,7 @@ p2=Rn_mm;
 p3=Rn_reviews;
 
 h1=figure('visible','off');
-boxplot(p1); % ,'widths',0.25
+boxplot(p1,'widths',0.1); % 
 xlabel('#BPs');
 ylabel('R_n');
 xlim([0.5 9.5]);
