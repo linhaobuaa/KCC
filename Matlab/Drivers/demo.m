@@ -126,6 +126,9 @@ true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the tr
 %----------using RPS for generating basic partitions----------
 IDX = BasicCluster_RPS(data, r, K, dist_of_basic_cluster, randKi);
 
+output_foldername='ResultDemo/';
+mkdir ResultDemo;
+
 %----------performing consensus function----------
 %%%% repeat KCC in 10 times run to obtain average performance %%%%
 for uidx = 1:length(U_array)
@@ -149,7 +152,7 @@ for uidx = 1:length(U_array)
     avgNMI = avgNMI / num;
     avgVIn = avgVIn / num;
     avgVDn = avgVDn / num;
-    filename = strcat(datafile,strcat('_',lower(U{1,1})));
+    filename = strcat([output_foldername '/' datafile],strcat('_',lower(U{1,1})));
     filename = strcat(filename,strcat('_',lower(U{1,2})));
     if ~isempty(U{1,3})
         filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));

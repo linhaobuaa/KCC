@@ -75,6 +75,9 @@ true_label = load(strcat('data/',strcat(datafile,'_rclass.dat'))); % load the tr
 %----------using RPS for generating basic partitions----------
 IDX = BasicCluster_RPS(data, r, K_BP, dist_of_basic_cluster, randKi);
 
+output_foldername='ResultDemoEvacluster/';
+mkdir ResultDemoEvacluster;
+
 %----------performing consensus function over different K----------
 set(groot, 'DefaultFigureVisible', 'off')
 MaxK = ceil(sqrt(size(data, 1))); % max number of clusters to choose from
@@ -109,7 +112,7 @@ text(bestK_elbow,distortions(bestK_elbow,1),['\leftarrow best K=' num2str(bestK_
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
 set(gca,'GridLineStyle',':');
-filename = strcat(datafile,strcat('_',lower(U{1,1})));
+filename = strcat([output_foldername '/' datafile],strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
@@ -134,7 +137,7 @@ text(bestK_silhouette,silhouettes(bestK_silhouette,1),['\leftarrow best K=' num2
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
 set(gca,'GridLineStyle',':');
-filename = strcat(datafile,strcat('_',lower(U{1,1})));
+filename = strcat([output_foldername '/' datafile],strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
@@ -151,7 +154,7 @@ ylabel('KCC Execution time (in seconds)');
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
 set(gca,'GridLineStyle',':');
-filename = strcat(datafile,strcat('_',lower(U{1,1})));
+filename = strcat([output_foldername '/' datafile],strcat('_',lower(U{1,1})));
 filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
