@@ -134,31 +134,28 @@ for uidx = 1:length(U_array)
     avgNMI = 0; % average NMI
     avgVIn = 0; % average VIn
     avgVDn = 0; % average VDn
-    avgt = 0; % average execution time
     U = U_array{1,uidx};
     for num = 1 : 10
-        [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag); % run KCC for consensus clustering
+        [pi_sumbest,pi_index,pi_converge,pi_utility,~] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag); % run KCC for consensus clustering
         [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, true_label); % evaluating clustering quality
         avgAcc = avgAcc + Acc;
         avgRn = avgRn + Rn;
         avgNMI = avgNMI + NMI;
         avgVIn = avgVIn + VIn;
         avgVDn = avgVDn + VDn;
-        avgt = avgt + t;
     end
     avgAcc = avgAcc / num;
     avgRn = avgRn / num;
     avgNMI = avgNMI / num;
     avgVIn = avgVIn / num;
     avgVDn = avgVDn / num;
-    avgt = avgt / num;
     filename = strcat(datafile,strcat('_',lower(U{1,1})));
     filename = strcat(filename,strcat('_',lower(U{1,2})));
     if ~isempty(U{1,3})
         filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
     end
     filename1 = strcat(filename,'.mat');
-    save(filename1,'avgt', 'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
+    save(filename1,'avgAcc', 'avgVIn', 'avgVDn', 'avgRn', 'avgNMI'); % save average performance to result matrix
     
     filename2 = strcat(filename,'_clustering_solutions.mat');
     save(filename2, 'pi_index');
