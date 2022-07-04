@@ -34,7 +34,7 @@ function [Ki,sumKi,binIDX,missFlag,missMatrix,distance,Pvector,weight]=...
 % copyright (c) 2021 Hao Lin & Hongfu Liu & Junjie Wu
 %==========================================================================
 
-    Ki = max(IDX); % vector storing the number of basic paritions for each basic clustering
+    Ki = max(IDX); % vector storing the number of clusters for each basic clustering
     sumKi = zeros(r+1,1); % a 1-by-r+1 row vector, sumKi(i) refers to the starting index of the ith basic partition for each data point
     for i=1:r 
         sumKi(i+1) = sumKi(i)+Ki(i);

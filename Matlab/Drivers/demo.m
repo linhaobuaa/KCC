@@ -4,9 +4,12 @@ function demo
 % DESCRIPTION: A function to illustrate KCC experiments with different
 % utility functions
 %
-% Note: For each dataset and each utility function, the function saves one
-% result matrix for clustering evaluation. Each result matrix contains the
-% average value of Classification Accuracy, Rn, NMI, VIn and VDn.
+% Note: For each dataset and each utility function, the function produces 
+% one result matrix for clustering evaluation, one result matrix of the 
+% cluster labels of the obtained consensus partion, and one figure for 
+% visualizing the clustering solutions. The result matrix of evaluation
+% contains the average value of Classification Accuracy, Rn, NMI, VIn 
+% and VDn.
 %
 %==========================================================================
 % copyright (c) 2021 Hao Lin & Hongfu Liu & Junjie Wu
