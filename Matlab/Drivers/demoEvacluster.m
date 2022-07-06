@@ -130,6 +130,9 @@ bestK_silhouette = kindex;
 
 %----------visualization of silhouette coefficient with different K---------- 
 figure('visible','off');
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperUnits', 'inches');
+set(gcf, 'PaperPosition', [0.25 2.5 8.0 6.0]);
 plot(1:MaxK,silhouettes,'b','LineWidth',2);
 xlabel('Number of clusters in the consensus function');
 xlim([1 MaxK])
@@ -150,6 +153,9 @@ saveas(gcf, filename2, 'epsc')
 
 %----------visualization of running time with different K----------
 figure('visible','off');
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperUnits', 'inches');
+set(gcf, 'PaperPosition', [0.25 2.5 8.0 6.0]);
 plot(1:MaxK,executiontimes,'b','LineWidth',2);
 xlabel('Number of clusters in the consensus function');
 xlim([1 MaxK])
