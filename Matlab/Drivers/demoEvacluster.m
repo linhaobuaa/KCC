@@ -159,7 +159,7 @@ set(gcf, 'PaperPosition', [0.25 2.5 8.0 6.0]);
 plot(1:MaxK,executiontimes,'b','LineWidth',2);
 xlabel('Number of clusters in the consensus function');
 xlim([1 MaxK])
-ylabel('KCC Execution time (in seconds)');
+ylabel('Execution time (in seconds)');
 set(gca,'linewidth',2,'fontsize',14,'color','none');
 grid on;
 set(gca,'GridLineStyle',':');
