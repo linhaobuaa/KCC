@@ -102,6 +102,9 @@ bestK_elbow=1+kindex(1,1); % get the optimal number of clusters
 
 %----------visualization of distortions with different K (Elbow Line)---------- 
 figure('visible','off');
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperUnits', 'inches');
+set(gcf, 'PaperPosition', [0.25 2.5 8.0 6.0]);
 plot(1:MaxK,distortions,'b','LineWidth',2);
 xlabel('Number of clusters in the consensus function');
 xlim([1 MaxK])
