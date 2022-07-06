@@ -117,7 +117,7 @@ filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
 end
-filename1 = strcat(filename, '_evacluster_distortionscore.pdf');
+filename1 = strcat(filename, '_evacluster_distortionscore.eps');
 saveas(gcf, filename1)
 
 %----------Choose the K with the maximum silhouette coefficient as the best parameter-------------
@@ -142,7 +142,7 @@ filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
 end
-filename2 = strcat(filename, '_evacluster_silhouettecoefficient.pdf');
+filename2 = strcat(filename, '_evacluster_silhouettecoefficient.eps');
 saveas(gcf, filename2)
 
 %----------visualization of running time with different K----------
@@ -159,7 +159,7 @@ filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
 end
-filename3 = strcat(filename, '_evacluster_executiontime.pdf');
+filename3 = strcat(filename, '_evacluster_executiontime.eps');
 saveas(gcf, filename3)
 
 end

@@ -2,7 +2,9 @@ function demoEvaTimeMem
 %==========================================================================
 % FUNCTION: demoEvaTimeMem
 % DESCRIPTION: A function to illustrate how to evaluate the full execution 
-%              time of running the KCC package and memory of the input matrix
+%              time of running the KCC package and memory of the input matrix.
+% When computing the peak memory usage, we can use the Matlab built-in 
+% profile function to profile this script.
 %
 %==========================================================================
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
@@ -131,20 +133,9 @@ for uidx = 1:length(U_array)
     %----------using RPS for generating basic partitions----------
     IDX = BasicCluster_RPS(data, r, K, dist_of_basic_cluster, randKi);
 
-    Ki = max(IDX);
-    num_instances = size(data, 1);
-    num_dims = sum(Ki);
-
-    sumKi = zeros(r+1,1);
-    for i=1:r 
-        sumKi(i+1) = sumKi(i)+Ki(i);
-    end
-    binIDX = IDX+repmat(sumKi(1:r)', num_instances, 1);
-    mem_sumKi = whos('sumKi');
-    mem_binIDX = whos('binIDX');
-
     U = U_array{1,uidx};
-    
+
+    %----------performing consensus function----------
     [pi_sumbest,pi_index,pi_converge,pi_utility,~] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag); % run KCC for consensus clustering
     [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMeasure(pi_index, true_label); % evaluating clustering quality
     
@@ -154,8 +145,8 @@ for uidx = 1:length(U_array)
     if ~isempty(U{1,3})
         filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
     end
-    filename = strcat(filename,'_timemem.mat');
-    save(filename, 't', 'mem_binIDX', 'mem_sumKi'); % save to result matrix
+    filename = strcat(filename,'_time.mat');
+    save(filename, 't'); % save to result matrix
 end
 
 end
