@@ -12,7 +12,7 @@ function demo
 % and VDn.
 %
 %==========================================================================
-% copyright (c) 2021 Hao Lin & Hongfu Liu & Junjie Wu
+% copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
 %==========================================================================
 
 % add lib path
