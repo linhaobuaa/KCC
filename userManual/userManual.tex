@@ -182,11 +182,11 @@ Hao Lin, Hongfu Liu, Junjie Wu, Hong Li, and Stephan Günnemann. 2022. Algorithm
 \end{minipage}
 \end{center}
 
-\noindent The package was developed and tested in \Matlab{} R2022a under Linux. {\color{red}To those without access to \Matlab{} and those who prefer to use free open source software, we also investigate the usage of \KCC with \Octave{}, and find it is also compatible with \Octave{} without additional efforts. \Octave{} version?}. 
-
-For package installation, you need to first unpack the compressed archive into your current directory. It consists of a \emph{source code} folder \textsf{Matlab}, a folder \textsf{userManual} with this comprehensive \emph{user manual}, and a \emph{license} file \textsf{LICENSE} indicating that the package is distributed under GNU GENERAL PUBLIC LICENSE (Version 3). Then under the \textsf{Matlab} folder, you need to add one of its subfolder, i.e., the \textsf{Src} folder, to the \Matlab{} path. The directory structure of the \textsf{Matlab} folder is described as follows.
+\noindent For package installation, you need to first unpack the compressed archive into your current directory. It consists of a \emph{source code} folder \textsf{Matlab}, a folder \textsf{userManual} with this comprehensive \emph{user manual}, and a \emph{license} file \textsf{LICENSE} indicating that the package is distributed under GNU GENERAL PUBLIC LICENSE (Version 3). Then under the \textsf{Matlab} folder, you need to add one of its subfolder, i.e., the \textsf{Src} folder, to the \Matlab{} path. The directory structure of the \textsf{Matlab} folder is described as follows.
 % All computations in this \emph{user guide} were carried out on a workstation with an Intel(R) Core(TM) i7-3770 CPU with 3.40\,GHz and 32\,GByte RAM. For the given code snippets we recommend more than 5\,GByte RAM. This, in particular, is true for the three-dimensional reconstruction example as it is the most RAM-consuming one.
 % It can be downloaded from the ACM Collected Algorithms (CALGO). 
+
+The package was developed and tested in \Matlab{} R2022a under Linux. To those without access to \Matlab{} and those who prefer to use free open source software, we also investigate the usage of \KCC with \Octave{}. Generally, the Octave supports drop-in compatibility with the Matlab scripts in our \KCC package. To use the \KCC package with Octave, the users need to firstly do an additional installation step, i.e., installing the statistics and io packages on the Octave command line using ``pkg install -forge statistics;'' and ``pkg install -forge io;'', respectively. Then, the users should type the commands ``pkg load statistics;'' and/or ``pkg load io;'' on the Octave command line before executing the functions/scripts in the KCC package if needed. All demonstration scripts with the prefix named ``demo'' under the Matlab/Drivers folder have passed the test on a personal computer with GNU Octave 7.1.0 and macOS 12.4. 
 
 % \setlength{\columnseprule}{0.25pt}
 % \setlength{\columnsep}{10pt}
@@ -198,7 +198,8 @@ For package installation, you need to first unpack the compressed archive into y
    \item \textsf{BasicCluster\_RPS.m} (function to generate BPs with RPS)
    \item \textsf{Preprocess.m} (function to prepare for consensus clustering)
    \item \textsf{KCC.m} (consensus function)
-   \item \textsf{exMeasure.m} (function to compute validity scores for clustering results)
+   \item \textsf{exMeasure.m} (function to compute external validity scores)
+   \item \textsf{inMeasure.m} (function to compute internal validity scores)
 
    \item \textsf{load\_sparse.m} (auxiliary function to load input text data as a sparse matrix)
    \item \textsf{hungarian.m} (auxiliary function for cluster label assignment)
