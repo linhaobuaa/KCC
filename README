@@ -1,9 +1,9 @@
 =============================================================================================
 KCC
-Version 1.0,  2021-April-25
+Version 1.1,  2022-July-1
 
 This package is distributed under GNU GENERAL PUBLIC LICENSE (Version 3).  (see LICENSE)
-Copyright (c) 2021 Hao Lin & Hongfu Liu & Junjie Wu.
+Copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu.
 =============================================================================================
 
 1. Introduction
@@ -18,7 +18,7 @@ KCC is a MATLAB package for K-means-based Consensus Clustering framework with di
 
 2. Installation and Basic Usage
 ===============================
-A. Copy all .m files to the current directory in your MATLAB environment or a directory in your MATLAB path. 
+A. Copy all .m files of Matlab/Src to the current directory in your MATLAB environment or a directory in your MATLAB path. 
 B. In the MATLAB command window, to run an illustrative example of KCC with different utility functions, type as follows,
 > demo
 After executing this command, evaluation metrics of KCC experiments with different utility functions will be stored in the result files.
@@ -37,6 +37,8 @@ B. Illustrative Example
     - demoStrategyBP.m: demonstrates KCC experiments with RFS strategy.
     - demoIBPI.m: demonstrates KCC experiments using Strategy-I for generating incomplete basic partitions
     - demoIBPII.m: demonstrates KCC experiments using Strategy-II for generating incomplete basic partitions
+    - demoEvacluster.m: demonstrates KCC experiments to evaluate the cluster solution using internal metrics and determines the best number of clusters for the consensus clustering
+    -demoEvaTimeMem.m: demonstrates how to measure the full execution time and peak memory usage of using KCC
 
 C. The process of KCC includes
 ------------------------------
@@ -52,7 +54,8 @@ C. The process of KCC includes
     - KCC: perform the final consensus function using different utility functions
 
 (4) Evaluating clustering quality
-    - exMeasure: computes validity scores for clustering results
+    - exMeasure: computes external validity scores for clustering results
+    - inMeasure: computes internal validity scores for clustering results
 
 D. Auxiliary functions
 ----------------------
