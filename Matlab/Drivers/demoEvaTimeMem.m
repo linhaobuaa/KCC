@@ -4,7 +4,10 @@ function demoEvaTimeMem
 % DESCRIPTION: A function to illustrate how to evaluate the full execution 
 %              time of running the KCC package and memory of the input matrix.
 % When computing the peak memory usage, we can use the Matlab built-in 
-% profile function to profile this script.
+% profile function to profile this script as follows:
+% >> profile on -memory;
+% >> profile viewer;
+% >> demoEvaTimeMem;
 %
 %==========================================================================
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
