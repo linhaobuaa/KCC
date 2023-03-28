@@ -35,14 +35,14 @@ addpath ../Src/
 % K_BP = 6;
 
 %%%% for pendigits dataset %%%%%
-% datafile = 'pendigits';
-% subfix = '.dat';
-% K_BP = 10;
+datafile = 'pendigits';
+subfix = '.dat';
+K_BP = 10;
 
 %%%% for satimage dataset %%%%%
-datafile = 'satimage';
-subfix = '.dat';
-K_BP = 6;
+% datafile = 'satimage';
+% subfix = '.dat';
+% K_BP = 6;
 
 %%%% for dermatology dataset %%%%%
 % datafile = 'dermatology';
