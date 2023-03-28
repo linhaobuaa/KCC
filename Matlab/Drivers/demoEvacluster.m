@@ -60,9 +60,14 @@ addpath ../Src/
 % K_BP = 2;
 
 %%%% for reviews dataset %%%%%
-datafile = 'reviews';
+% datafile = 'reviews';
+% subfix = '.mat';
+% K_BP = 5;
+
+%%%% for la12 dataset %%%%%
+datafile = 'la12';
 subfix = '.mat';
-K_BP = 5;
+K_BP = 6;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
