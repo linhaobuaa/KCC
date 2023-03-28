@@ -70,6 +70,7 @@ elseif strcmp(subfix,'.mat')
     dist_of_basic_cluster = 'cosine'; % for text data set like mm, reviews, la12, sports
 else
     error('start1:UnknownInputDataType','Only .dat and .mat data is supported.');
+end
 
 %%%% Select randKi for bp generation, for BasicCluster_RPS only
 randKi = 1;
