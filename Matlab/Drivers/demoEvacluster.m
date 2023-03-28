@@ -40,10 +40,14 @@ addpath ../Src/
 % K_BP = 10;
 
 %%%% for satimage dataset %%%%%
-datafile = 'satimage';
+% datafile = 'satimage';
+% subfix = '.dat';
+% K_BP = 6;
+
+%%%% for dermatology dataset %%%%%
+datafile = 'dermatology';
 subfix = '.dat';
 K_BP = 6;
-
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
