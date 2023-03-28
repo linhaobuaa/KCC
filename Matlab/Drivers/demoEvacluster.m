@@ -35,9 +35,9 @@ addpath ../Src/
 % K_BP = 6;
 
 %%%% for pendigits dataset %%%%%
-datafile = 'pendigits';
-subfix = '.dat';
-K_BP = 10;
+% datafile = 'pendigits';
+% subfix = '.dat';
+% K_BP = 10;
 
 %%%% for satimage dataset %%%%%
 % datafile = 'satimage';
@@ -54,13 +54,22 @@ K_BP = 10;
 % subfix = '.dat';
 % K_BP = 3;
 
+%%%% for mm dataset %%%%%
+datafile = 'mm';
+subfix = '.mat';
+K_BP = 2;
+
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
 w = ones(r, 1); % the weight of each partitions
 
 %%%% distance measure for basic clustering using K-means,
-%%%% dist_of_basic_cluster = 'cosine' for text data set like mm, reviews, la12, sports
-dist_of_basic_cluster = 'sqEuclidean';
+if strcmp(subfix,'.dat')
+    dist_of_basic_cluster = 'sqEuclidean';
+elseif strcmp(subfix,'.mat')
+    dist_of_basic_cluster = 'cosine'; % for text data set like mm, reviews, la12, sports
+else
+    error('start1:UnknownInputDataType','Only .dat and .mat data is supported.');
 
 %%%% Select randKi for bp generation, for BasicCluster_RPS only
 randKi = 1;
