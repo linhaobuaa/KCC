@@ -45,9 +45,14 @@ addpath ../Src/
 % K_BP = 6;
 
 %%%% for dermatology dataset %%%%%
-datafile = 'dermatology';
+% datafile = 'dermatology';
+% subfix = '.dat';
+% K_BP = 6;
+
+%%%% for wine dataset %%%%%
+datafile = 'wine';
 subfix = '.dat';
-K_BP = 6;
+K_BP = 3;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
