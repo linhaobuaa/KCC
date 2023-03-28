@@ -40,9 +40,9 @@ addpath ../Src/
 % K_BP = 10;
 
 %%%% for satimage dataset %%%%%
-% datafile = 'satimage';
-% subfix = '.dat';
-% K_BP = 6;
+datafile = 'satimage';
+subfix = '.dat';
+K_BP = 6;
 
 %%%% for dermatology dataset %%%%%
 % datafile = 'dermatology';
@@ -50,9 +50,9 @@ addpath ../Src/
 % K_BP = 6;
 
 %%%% for wine dataset %%%%%
-datafile = 'wine';
-subfix = '.dat';
-K_BP = 3;
+% datafile = 'wine';
+% subfix = '.dat';
+% K_BP = 3;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
