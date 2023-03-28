@@ -5,6 +5,9 @@ function demoEvacluster
 % when there are no ground truth label information in consensus function, and
 % how to select the best number of clusters for the consensus function.
 %
+% Note: part of the implementation of elbow method is based on the following:
+% Dmitry Kaplan (2023). Knee Point (https://www.mathworks.com/matlabcentral/
+% fileexchange/35094-knee-point), MATLAB Central File Exchange
 %==========================================================================
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
 %==========================================================================
@@ -17,9 +20,9 @@ addpath ../Src/
 %----------identify all input arguments----------
 
 %%%% for iris dataset %%%%%
-datafile = 'iris';
-subfix = '.dat';
-K_BP = 3; % parameter denoting the number of clusters for basic partitions
+% datafile = 'iris';
+% subfix = '.dat';
+% K_BP = 3; % parameter denoting the number of clusters for basic partitions
 
 %%%% for breast_w dataset %%%%%
 % datafile = 'breast_w';
@@ -30,6 +33,12 @@ K_BP = 3; % parameter denoting the number of clusters for basic partitions
 % datafile = 'ecoli';
 % subfix = '.dat';
 % K_BP = 6;
+
+%%%% for pendigits dataset %%%%%
+datafile = 'pendigits';
+subfix = '.dat';
+K_BP = 10;
+
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
@@ -59,7 +68,7 @@ utilFlag = 1;
 U = {'U_c','std',[]};
 
 %%%% cutoff parameter for elbow method
-Cutoff = 0.95;
+Cutoff = 0.8;
 
 %----------loading data----------
 if strcmp(subfix,'.dat')
@@ -88,17 +97,17 @@ for K=1:MaxK % for each K
     tic; % record started computation time in seconds
     [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag);
     t = toc;
-    [Distortion, Silhouette] = inMeasure(IDX, pi_index, U);
+    [Distortion, Silhouette] = inMeasure(data, pi_index, K);
     distortions(K,1) = Distortion;
     silhouettes(K,1) = Silhouette;
     executiontimes(K,1)=t;
 end
 
 %----------performing elbow method on the Distortion values to find best K---------- 
-variance = distortions(1:end-1)-distortions(2:end); % calculate variance
-PC = cumsum(variance)/(distortions(1)-distortions(end));
-[kindex,~]=find(PC>Cutoff); % find the best index
-bestK_elbow=1+kindex(1,1); % get the optimal number of clusters
+[res_x, idx_of_result] = knee_pt(distortions,1:MaxK);
+%disp(res_x);
+%disp(idx_of_result);
+bestK_elbow = res_x;
 
 %----------visualization of distortions with different K (Elbow Line)---------- 
 figure('visible','off');
@@ -120,8 +129,8 @@ filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
 end
-filename1 = strcat(filename, '_evacluster_distortionscore.eps');
-saveas(gcf, filename1, 'epsc')
+filename1 = strcat(filename, '_evacluster_distortionscore.pdf');
+saveas(gcf, filename1)
 
 %----------Choose the K with the maximum silhouette coefficient as the best parameter-------------
 [best_silhouette, kindex] = max(silhouettes);
@@ -148,8 +157,8 @@ filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
 end
-filename2 = strcat(filename, '_evacluster_silhouettecoefficient.eps');
-saveas(gcf, filename2, 'epsc')
+filename2 = strcat(filename, '_evacluster_silhouettecoefficient.pdf');
+saveas(gcf, filename2)
 
 %----------visualization of running time with different K----------
 figure('visible','off');
@@ -168,7 +177,7 @@ filename = strcat(filename,strcat('_',lower(U{1,2})));
 if ~isempty(U{1,3})
     filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
 end
-filename3 = strcat(filename, '_evacluster_executiontime.eps');
-saveas(gcf, filename3, 'epsc')
+filename3 = strcat(filename, '_evacluster_executiontime.pdf');
+saveas(gcf, filename3)
 
 end

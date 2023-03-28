@@ -1,16 +1,13 @@
-function [Distortion, Silhouette] = inMeasure(IDX, cluster, U)
+function [Distortion, Silhouette] = inMeasure(X, cluster, k)
 %==========================================================================
-% FUNCTION: [Distortion, Silhouette] = inMeasure(IDX, cluster, U)
+% FUNCTION: [Distortion, Silhouette] = inMeasure(X, cluster)
 % DESCRIPTION: This function is used to internally assess and evaluate 
 %              clustering quality of a KCC solution, without access 
 %              to the ground truth cluster labels.
 %
-% INPUTS:   IDX = the input basic partition matrix for KCC
+% INPUTS:   X = the input data matrix
 %           cluster = the clustering decision matrix returned by KCC
-%           U = parameters for utility function
-%               Para1: U_c, U_cos
-%               Para2: 'std'-standard
-%               Para3: If U_Lp, can be used to set p
+%           k = number of clusters
 %
 %
 % OUTPUT:   Distortion = the distortion score, i.e., the sum of the
@@ -21,63 +18,31 @@ function [Distortion, Silhouette] = inMeasure(IDX, cluster, U)
 %
 %==========================================================================
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
-% Note: part of the implementation of elbow method is based on the following:
-% Sebastien De Landtsheer (2022). kmeans_opt 
-% (https://www.mathworks.com/matlabcentral/fileexchange/65823-kmeans_opt), 
-% MATLAB Central File Exchange. 
+% Note that, part of the implementation of distortion score computation is 
+% based on the following: Cai, Deng. "Litekmeans: the fastest matlab 
+% implementation of kmeans." Software available at: http://www.zjucadcg.cn/
+% dengcai/Data/Clustering.html 311 (2011).
 %==========================================================================
 
-    if sum(any(IDX==0))>0  % if there is missing values in IDX matrix
-        missFlag = 1; % indicates missing values
-        missMatrix = IDX>0; % non-zero entries of IDX
-    else %
-        missFlag = 0;
-        missMatrix = [];
-    end
-
-    distance_sih = 'sqEuclidean'; % distance function used in silhouette calculation
-    distance_dist = @distance_euc; % distance function used in distortion calculation
-    if missFlag == 1
-        error('inMeasure:Input IDX contains missing values',...
-            'Currently only support complete basic partitions');
-    elseif strcmpi(U{1,2},'std')~=1 
-        error('inMeasure:Unsupported utility type',...
-            'Currently only support standard utility function');
-    else
-        switch lower(U{1,1})
-            case 'u_c'
-                distance_sih = 'sqEuclidean';
-                distance_dist = @distance_euc;
-            case 'u_cos'
-                distance_sih = 'cosine';
-                distance_dist = @distance_cos;
-            otherwise
-                error('inMeasure:UnknowUtilityFunction',...
-                    'Currently only support U_c,U_cos.');
-        end
-    end
-
     % call silhouette function from the Matlab Statistics and Machine Learning Toolbox
-    S = silhouette(IDX, cluster, distance_sih); %disp(size(S)); % n * 1
+    distance_sih = 'sqEuclidean'; % distance function used in silhouette calculation
+    S = silhouette(X, cluster, distance_sih); %disp(size(S)); % n * 1
     Silhouette = mean(S); %disp(Silhouette);
 
-    [n,r]=size(IDX);
-    K = length(unique(cluster));
-    Ki = max(IDX); % vector storing the number of basic paritions for each basic clustering
-    sumKi = zeros(r+1,1); % a 1-by-r+1 row vector, sumKi(i) refers to the starting index of the ith basic partition for each data point
-    for i=1:r 
-        sumKi(i+1) = sumKi(i)+Ki(i);
+    Distortion = zeros(k,1); % use 'sqEuclidean' as the distance function
+    n = size(X,1);
+    E = sparse(1:n,cluster,1,n,k,n);  % transform label into indicator matrix
+    center = full((E*spdiags(1./sum(E,1)',0,k,k))'*X);    % compute center of each cluster
+    aa = full(sum(X.*X,2));
+    bb = full(sum(center.*center,2));
+    ab = full(X*center');
+    D = bsxfun(@plus,aa,bb') - 2*ab;
+    D(D<0) = 0;
+    D = sqrt(D);
+    for j = 1:k
+        Distortion(j,1) = sum(D(cluster==j,j));
     end
-    binIDX = IDX+repmat(sumKi(1:r)',n,1); % binIDX indicates the offset position of the ones values in the binary data matrix
-
-    C = gCentroid(IDX,cluster,K,n,r,sumKi,Ki);
-    D = feval(distance_dist,U,C,ones(r,1),n,r,K,sumKi,binIDX);
-    % disp(size(D)); % n * k
-    % disp(D);
-    Distortion = zeros(n, 1);
-    for j=1:n
-        Distortion(j, 1)=D(j,cluster(j, 1));
-    end;
+    % disp(Distortion);
     Distortion = sum(Distortion);
     % disp(Distortion);
 end
