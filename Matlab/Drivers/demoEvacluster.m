@@ -35,9 +35,14 @@ addpath ../Src/
 % K_BP = 6;
 
 %%%% for pendigits dataset %%%%%
-datafile = 'pendigits';
+% datafile = 'pendigits';
+% subfix = '.dat';
+% K_BP = 10;
+
+%%%% for satimage dataset %%%%%
+datafile = 'satimage';
 subfix = '.dat';
-K_BP = 10;
+K_BP = 6;
 
 
 %%%% parameters of basic partitionings %%%%
