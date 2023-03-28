@@ -20,9 +20,9 @@ addpath ../Src/
 %----------identify all input arguments----------
 
 %%%% for iris dataset %%%%%
-% datafile = 'iris';
-% subfix = '.dat';
-% K_BP = 3; % parameter denoting the number of clusters for basic partitions
+datafile = 'iris';
+subfix = '.dat';
+K_BP = 3; % parameter denoting the number of clusters for basic partitions
 
 %%%% for breast_w dataset %%%%%
 % datafile = 'breast_w';
@@ -70,9 +70,9 @@ addpath ../Src/
 % K_BP = 6;
 
 %%%% for sports dataset %%%%%
-datafile = 'sports';
-subfix = '.mat';
-K_BP = 7;
+% datafile = 'sports';
+% subfix = '.mat';
+% K_BP = 7;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
@@ -131,16 +131,21 @@ set(groot, 'DefaultFigureVisible', 'off')
 MaxK = ceil(sqrt(size(data, 1))); % max number of clusters to choose from
 distortions=zeros(MaxK, 1); % vectors storing the Distortion value for each K
 silhouettes=zeros(MaxK, 1); % vectors storing the Silhouette value for each K
+vrcs=zeros(MaxK, 1);
 executiontimes=zeros(MaxK, 1); % vectors storing the execution time of running KCC
 for K=1:MaxK % for each K
     tic; % record started computation time in seconds
     [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag);
     t = toc;
-    [Distortion, Silhouette] = inMeasure(data, pi_index, K);
+    [Distortion, Silhouette, vrc] = inMeasure(data, pi_index, K);
     distortions(K,1) = Distortion;
     silhouettes(K,1) = Silhouette;
+    vrcs(K,1) = vrc;
     executiontimes(K,1)=t;
 end
+
+[~, kindex] = max(vrcs);
+disp(kindex);
 
 %----------performing elbow method on the Distortion values to find best K---------- 
 [res_x, idx_of_result] = knee_pt(distortions,1:MaxK);

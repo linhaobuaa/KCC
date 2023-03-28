@@ -1,4 +1,4 @@
-function [Distortion, Silhouette] = inMeasure(X, cluster, k)
+function [Distortion, Silhouette, vrc] = inMeasure(X, cluster, k)
 %==========================================================================
 % FUNCTION: [Distortion, Silhouette] = inMeasure(X, cluster)
 % DESCRIPTION: This function is used to internally assess and evaluate 
@@ -45,4 +45,6 @@ function [Distortion, Silhouette] = inMeasure(X, cluster, k)
     % disp(Distortion);
     Distortion = sum(Distortion);
     % disp(Distortion);
+
+    vrc = CalinskiHarabasz(X, cluster, center, Distortion);
 end
