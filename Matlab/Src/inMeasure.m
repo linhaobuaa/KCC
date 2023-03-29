@@ -1,6 +1,6 @@
-function [Distortion, Silhouette, vrc] = inMeasure(X, cluster, k)
+function [Distortion, Silhouette, CH] = inMeasure(X, cluster, k)
 %==========================================================================
-% FUNCTION: [Distortion, Silhouette] = inMeasure(X, cluster)
+% FUNCTION: [Distortion, Silhouette, CH] = inMeasure(X, cluster, k)
 % DESCRIPTION: This function is used to internally assess and evaluate 
 %              clustering quality of a KCC solution, without access 
 %              to the ground truth cluster labels.
@@ -15,13 +15,18 @@ function [Distortion, Silhouette, vrc] = inMeasure(X, cluster, k)
 %                        the centroid of their assigned cluster.
 %           Silhouette = the average silhouette coefficient value of all
 %                        data objects
+%           CH         = the Calinski and Harabasz (CH) index
 %
 %==========================================================================
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
+
 % Note that, part of the implementation of distortion score computation is 
 % based on the following: Cai, Deng. "Litekmeans: the fastest matlab 
 % implementation of kmeans." Software available at: http://www.zjucadcg.cn/
 % dengcai/Data/Clustering.html 311 (2011).
+% The implementation of CalinskiHarabasz is based on the repository in 
+% https://github.com/ljchang/CosanlabToolbox/blob/master/Matlab/Stats/
+% CalinskiHarabasz.m
 %==========================================================================
 
     % call silhouette function from the Matlab Statistics and Machine Learning Toolbox
@@ -46,5 +51,5 @@ function [Distortion, Silhouette, vrc] = inMeasure(X, cluster, k)
     Distortion = sum(Distortion);
     % disp(Distortion);
 
-    vrc = CalinskiHarabasz(X, cluster, center, Distortion);
+    CH = CalinskiHarabasz(X, cluster, center, Distortion);
 end

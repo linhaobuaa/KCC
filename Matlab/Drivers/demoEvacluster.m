@@ -7,7 +7,10 @@ function demoEvacluster
 %
 % Note: part of the implementation of elbow method is based on the following:
 % Dmitry Kaplan (2023). Knee Point (https://www.mathworks.com/matlabcentral/
-% fileexchange/35094-knee-point), MATLAB Central File Exchange
+% fileexchange/35094-knee-point), MATLAB Central File Exchange.
+% Implementation of Majority Vote is based on following repository:
+% Joseph Santarcangelo (2023). Majority Vote for Matlab (https://github.com/
+% jsantarc/Majority-Vote-function-for-Matlab-), GitHub.
 %==========================================================================
 % copyright (c) 2022 Hao Lin & Hongfu Liu & Junjie Wu
 %==========================================================================
@@ -25,9 +28,9 @@ addpath ../Src/
 % K_BP = 3; % parameter denoting the number of clusters for basic partitions
 
 %%%% for breast_w dataset %%%%%
-datafile = 'breast_w';
-subfix = '.dat';
-K_BP = 2;
+% datafile = 'breast_w';
+% subfix = '.dat';
+% K_BP = 2;
 
 %%%% for ecoli dataset %%%%%
 % datafile = 'ecoli';
@@ -35,9 +38,9 @@ K_BP = 2;
 % K_BP = 6;
 
 %%%% for pendigits dataset %%%%%
-% datafile = 'pendigits';
-% subfix = '.dat';
-% K_BP = 10;
+datafile = 'pendigits';
+subfix = '.dat';
+K_BP = 10;
 
 %%%% for satimage dataset %%%%%
 % datafile = 'satimage';
@@ -131,21 +134,45 @@ set(groot, 'DefaultFigureVisible', 'off')
 MaxK = ceil(sqrt(size(data, 1))); % max number of clusters to choose from
 distortions=zeros(MaxK, 1); % vectors storing the Distortion value for each K
 silhouettes=zeros(MaxK, 1); % vectors storing the Silhouette value for each K
-vrcs=zeros(MaxK, 1);
+chs=zeros(MaxK, 1);
 executiontimes=zeros(MaxK, 1); % vectors storing the execution time of running KCC
 for K=1:MaxK % for each K
     tic; % record started computation time in seconds
     [pi_sumbest,pi_index,pi_converge,pi_utility,t] = RunKCC(IDX,K,U,w,rep,maxIter,minThres,utilFlag);
     t = toc;
-    [Distortion, Silhouette, vrc] = inMeasure(data, pi_index, K);
+    [Distortion, Silhouette, CH] = inMeasure(data, pi_index, K);
     distortions(K,1) = Distortion;
     silhouettes(K,1) = Silhouette;
-    vrcs(K,1) = vrc;
+    chs(K,1) = CH;
     executiontimes(K,1)=t;
 end
 
-[~, kindex] = max(vrcs);
-disp(kindex);
+%----------performing maximization on the CH values to find best K---------- 
+[values, kindex] = max(chs(~isinf(chs)));
+bestK_CH = size(chs,1) - size(chs(~isinf(chs)),1) + kindex;
+
+%----------visualization of CH with different K ---------- 
+figure('visible','off');
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperUnits', 'inches');
+set(gcf, 'PaperPosition', [0.25 2.5 8.0 6.0]);
+plot(1:MaxK,chs,'b','LineWidth',2);
+xlabel('Number of clusters in the consensus function');
+xlim([1 MaxK])
+ylabel('CalinskiHarabasz');
+hold on;
+plot([bestK_CH bestK_CH],[0 chs(bestK_CH,1)],'r','LineWidth',2);
+text(bestK_CH,chs(bestK_CH,1),['\leftarrow best K=' num2str(bestK_CH)],'Color','red')
+set(gca,'linewidth',2,'fontsize',14,'color','none');
+grid on;
+set(gca,'GridLineStyle',':');
+filename = strcat([output_foldername '/' datafile],strcat('_',lower(U{1,1})));
+filename = strcat(filename,strcat('_',lower(U{1,2})));
+if ~isempty(U{1,3})
+    filename = strcat(filename,strcat('_',num2str(lower(U{1,3}))));
+end
+filename1 = strcat(filename, '_evacluster_CH.pdf');
+saveas(gcf, filename1)
 
 %----------performing elbow method on the Distortion values to find best K---------- 
 [res_x, idx_of_result] = knee_pt(distortions,1:MaxK);
@@ -223,5 +250,12 @@ if ~isempty(U{1,3})
 end
 filename3 = strcat(filename, '_evacluster_executiontime.pdf');
 saveas(gcf, filename3)
+
+bestKs = [bestK_silhouette bestK_CH bestK_elbow];
+[bestK] = majorityvote(bestKs);
+disp("The best number of clusters with Silhouette is: " + bestK_silhouette);
+disp("The best number of clusters with CalinskiHarabasz is: " + bestK_CH);
+disp("The best number of clusters with Distortion is: " + bestK_elbow);
+disp("The best number of clusters with majority voting is: " + bestK);
 
 end
