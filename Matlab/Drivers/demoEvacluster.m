@@ -68,14 +68,14 @@ addpath ../Src/
 % K_BP = 5;
 
 %%%% for la12 dataset %%%%%
-datafile = 'la12';
-subfix = '.mat';
-K_BP = 6;
+% datafile = 'la12';
+% subfix = '.mat';
+% K_BP = 6;
 
 %%%% for sports dataset %%%%%
-% datafile = 'sports';
-% subfix = '.mat';
-% K_BP = 7;
+datafile = 'sports';
+subfix = '.mat';
+K_BP = 7;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
