@@ -58,14 +58,14 @@ addpath ../Src/
 % K_BP = 3;
 
 %%%% for mm dataset %%%%%
-datafile = 'mm';
-subfix = '.mat';
-K_BP = 2;
+% datafile = 'mm';
+% subfix = '.mat';
+% K_BP = 2;
 
 %%%% for reviews dataset %%%%%
-% datafile = 'reviews';
-% subfix = '.mat';
-% K_BP = 5;
+datafile = 'reviews';
+subfix = '.mat';
+K_BP = 5;
 
 %%%% for la12 dataset %%%%%
 % datafile = 'la12';
