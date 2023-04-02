@@ -4,7 +4,7 @@ function demoStrategyBP
 % DESCRIPTION: A function to illustrate KCC experiments with RFS
 % strategy for basic partition generation
 %
-% Note: For each dataset and each nFeature, the function saves one result matrix for 
+% Note: For each dataset and each nFeature, the function saves one result matrix for
 % clustering evaluation. Each result matrix contains the average value of Rn.
 %
 %==========================================================================
@@ -79,7 +79,7 @@ else
 end
 
 %%%% the number of KCC runs %%%%
-rep = 10; 
+rep = 10;
 
 %%%% the maximum iteration for KCC convergence %%%%
 maxIter = 40;

@@ -31,9 +31,15 @@ function IDX = BasicCluster_RPS(Data, r, K, dist, randKi)
         Ki = K * ones(r, 1); % here Ki is equal to K
     end
     
+    isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
+    kmeansfunc = @kmeans;
+    if isOctave==1
+        kmeansfunc = @kmeans_octave;
+    end
+    
     for i=1:r
     % parfor i=1:r % using the parallel `for-loop' in Parallel Computing Toolbox
-        IDX(:, i) = kmeans(Data, Ki(i), 'distance', dist, ...
+        IDX(:, i) = feval(kmeansfunc, Data, Ki(i), 'distance', dist, ...
         'emptyaction', 'singleton', 'replicates', 1);
     end
     
