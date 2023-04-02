@@ -23,9 +23,9 @@ addpath ../Src/
 %----------identify all input arguments----------
 
 %%%% for iris dataset %%%%%
-% datafile = 'iris';
-% subfix = '.dat';
-% K_BP = 3; % parameter denoting the number of clusters for basic partitions
+datafile = 'iris';
+subfix = '.dat';
+K_BP = 3; % parameter denoting the number of clusters for basic partitions
 
 %%%% for breast_w dataset %%%%%
 % datafile = 'breast_w';
@@ -73,9 +73,9 @@ addpath ../Src/
 % K_BP = 6;
 
 %%%% for sports dataset %%%%%
-datafile = 'sports';
-subfix = '.mat';
-K_BP = 7;
+% datafile = 'sports';
+% subfix = '.mat';
+% K_BP = 7;
 
 %%%% parameters of basic partitionings %%%%
 r = 100; % number of basic partitions
