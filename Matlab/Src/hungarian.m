@@ -12,8 +12,8 @@ function [C,T]=hungarian(A)
 % Mathematical Software, 6(1):104-111, 1980.
 
 % v1.0  96-06-14. Niclas Borlin, niclas@cs.umu.se.
-%                 Department of Computing Science, Umeå University,
-%                 Sweden. 
+%                 Department of Computing Science, Umeï¿½ University,
+%                 Sweden.
 %                 All standard disclaimers apply.
 
 % A substantial effort was put into this code. If you use it for a
@@ -42,31 +42,31 @@ while (U(n+1))
     LC=zeros(1,n);
     CH=zeros(1,n);
     RH=[zeros(1,n) -1];
-    
+
     % No labelled columns.
     SLC=[];
-    
+
     % Start path in first unassigned row.
     r=U(n+1);
     % Mark row with end-of-path label.
     LR(r)=-1;
     % Insert row first in labelled row set.
     SLR=r;
-    
+
     % Repeat until we manage to find an assignable zero.
     while (1)
         % If there are free zeros in row r
         if (A(r,n+1)~=0)
             % ...get column of first free zero.
             l=-A(r,n+1);
-            
+
             % If there are more free zeros in row r and row r in not
             % yet marked as unexplored..
-            if (A(r,l)~=0 & RH(r)==0)
+            if (A(r,l)~=0 && RH(r)==0)
                 % Insert row r first in unexplored list.
                 RH(r)=RH(n+1);
                 RH(n+1)=r;
-                
+
                 % Mark in which column the next unexplored zero in this row
                 % is.
                 CH(r)=-A(r,l);
@@ -77,7 +77,7 @@ while (U(n+1))
                 % Reduce matrix.
                 [A,CH,RH]=hmreduce(A,CH,RH,LC,LR,SLC,SLR);
             end
-            
+
             % Re-start with first unexplored row.
             r=RH(n+1);
             % Get column of next free zero in row r.
@@ -91,7 +91,7 @@ while (U(n+1))
                 RH(r)=0;
             end
         end
-        
+
         % While the column l is labelled, i.e. in path.
         while (LC(l)~=0)
             % If row r is explored..
@@ -101,17 +101,17 @@ while (U(n+1))
                     % Reduce cost matrix.
                     [A,CH,RH]=hmreduce(A,CH,RH,LC,LR,SLC,SLR);
                 end
-                
+
                 % Re-start with first unexplored row.
                 r=RH(n+1);
             end
-            
+
             % Get column of next free zero in row r.
             l=CH(r);
-            
+
             % Advance "column of next free zero".
             CH(r)=-A(r,l);
-            
+
             % If this zero is last in list..
             if(A(r,l)==0)
                 % ...remove row r from unexplored list.
@@ -119,7 +119,7 @@ while (U(n+1))
                 RH(r)=0;
             end
         end
-        
+
         % If the column found is unassigned..
         if (C(l)==0)
             % Flip all zeros along the path in LR,LC.
@@ -128,19 +128,19 @@ while (U(n+1))
             break;
         else
             % ...else add zero to path.
-            
+
             % Label column l with row r.
             LC(l)=r;
-            
+
             % Add l to the set of labelled columns.
             SLC=[SLC l];
-            
+
             % Continue with the row assigned to column l.
             r=C(l);
-            
+
             % Label row r with column l.
             LR(r)=l;
-            
+
             % Add r to the set of labelled rows.
             SLR=[SLR r];
         end
@@ -176,7 +176,7 @@ A=A-rowMin(:,ones(1,n));
 % Extend A to give room for row zero list header column.
 A(1,n+1)=0;
 for k=1:n
-    % Get all column in this row. 
+    % Get all column in this row.
     cols=j(k==i)';
     % Insert pointers in matrix.
     A(k,[n+1 cols])=[-cols 0];
@@ -212,12 +212,12 @@ for i=1:n
 
     % Repeat until we have no more zeros (j==0) or we find a zero
 	% in an unassigned column (c(j)==0).
-    
+
 	while (C(j)~=0)
 		% Advance lj and j in zero list.
 		lj=j;
 		j=-A(i,lj);
-	
+
 		% Stop if we hit end of list.
 		if (j==0)
 			break;
@@ -226,10 +226,10 @@ for i=1:n
 
 	if (j~=0)
 		% We found a zero in an unassigned column.
-		
+
 		% Assign row i to column j.
 		C(j)=i;
-		
+
 		% Remove A(i,j) from unassigned zero list.
 		A(i,lj)=A(i,j);
 
@@ -246,62 +246,62 @@ for i=1:n
 
 		lj=n+1;
 		j=-A(i,lj);
-		
+
 		% Check all zeros in this row for a suitable zero in another row.
 		while (j~=0)
 			% Check the in the row assigned to this column.
 			r=C(j);
-			
+
 			% Pick up last/next pointers.
 			lm=LZ(r);
 			m=NZ(r);
-			
+
 			% Check all unchecked zeros in free list of this row.
 			while (m~=0)
 				% Stop if we find an unassigned column.
 				if (C(m)==0)
 					break;
 				end
-				
+
 				% Advance one step in list.
 				lm=m;
 				m=-A(r,lm);
 			end
-			
+
 			if (m==0)
 				% We failed on row r. Continue with next zero on row i.
 				lj=j;
 				j=-A(i,lj);
 			else
 				% We found a zero in an unassigned column.
-			
+
 				% Replace zero at (r,m) in unassigned list with zero at (r,j)
 				A(r,lm)=-j;
 				A(r,j)=A(r,m);
-			
+
 				% Update last/next pointers in row r.
 				NZ(r)=-A(r,m);
 				LZ(r)=j;
-			
+
 				% Mark A(r,m) as an assigned zero in the matrix . . .
 				A(r,m)=0;
-			
+
 				% ...and in the assignment vector.
 				C(m)=r;
-			
+
 				% Remove A(i,j) from unassigned list.
 				A(i,lj)=A(i,j);
-			
+
 				% Update last/next pointers in row r.
 				NZ(i)=-A(i,j);
 				LZ(i)=lj;
-			
+
 				% Mark A(r,m) as an assigned zero in the matrix . . .
 				A(i,j)=0;
-			
+
 				% ...and in the assignment vector.
 				C(j)=i;
-				
+
 				% Stop search.
 				break;
 			end
@@ -331,7 +331,7 @@ function [A,C,U]=hmflip(A,C,LC,LR,U,l,r)
 %C   - the assignment vector.
 %LC  - the column label vector.
 %LR  - the row label vector.
-%U   - the 
+%U   - the
 %r,l - position of last zero in path.
 %Output:
 %A   - updated cost matrix.
@@ -345,17 +345,17 @@ n=size(A,1);
 while (1)
     % Move assignment in column l to row r.
     C(l)=r;
-    
+
     % Find zero to be removed from zero list..
-    
+
     % Find zero before this.
     m=find(A(r,:)==-l);
-    
+
     % Link past this zero.
     A(r,m)=A(r,l);
-    
+
     A(r,l)=0;
-    
+
     % If this was the first zero of the path..
     if (LR(r)<0)
         ...remove row from unassigned row list and return.
@@ -363,14 +363,14 @@ while (1)
         U(r)=0;
         return;
     else
-        
+
         % Move back in this row along the path and get column of next zero.
         l=LR(r);
-        
+
         % Insert zero at (r,l) first in zero list.
         A(r,l)=A(r,n+1);
         A(r,n+1)=-l;
-        
+
         % Continue back along the column to get row of next zero in path.
         r=LC(l);
     end

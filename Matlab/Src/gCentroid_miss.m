@@ -51,7 +51,7 @@ function C = gCentroid_miss(IDX,index,K,n,r,sumKi,Ki)
                 end
             end
             
-        else % 如果出现退化空簇，找一个样本成为新的中心
+        else % if there is empty cluster, a random sample will be selected as the cluster centroid.
             C(k,:) = sCentroid_miss(IDX(randsample(n,1),:),1,r,Ki,sumKi);
         end
         
