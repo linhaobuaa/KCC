@@ -1,20 +1,24 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Guides}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{BasicCluster\137RFS}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{BasicCluster\137RPS}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Preprocess}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{KCC}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.5}{distance\137euc}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.6}{distance\137cos}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.7}{distance\137kl}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.8}{distance\137lp}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.9}{distance\137euc\137miss}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.10}{distance\137cos\137miss}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.11}{distance\137kl\137miss}{section.2}% 13
-\BOOKMARK [2][-]{subsection.2.12}{distance\137lp\137miss}{section.2}% 14
-\BOOKMARK [2][-]{subsection.2.13}{UCompute}{section.2}% 15
-\BOOKMARK [2][-]{subsection.2.14}{UCompute\137miss}{section.2}% 16
-\BOOKMARK [2][-]{subsection.2.15}{RunKCC}{section.2}% 17
-\BOOKMARK [2][-]{subsection.2.16}{exMeasure}{section.2}% 18
-\BOOKMARK [2][-]{subsection.2.17}{inMeasure}{section.2}% 19
-\BOOKMARK [0][-]{Ref.0}{References}{}% 20
+\BOOKMARK [1][-]{section.2}{Illustrative examples}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{A quick introductory example for illustrating the typical workflow}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{An illustrative example of choosing effective and efficient utility function}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{An illustrative example of determining the best number of clusters}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Matlab functions that are provided to the user}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{BasicCluster\137RFS}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{BasicCluster\137RPS}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Preprocess}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.4}{KCC}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.5}{distance\137euc}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.6}{distance\137cos}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.7}{distance\137kl}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.8}{distance\137lp}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.9}{distance\137euc\137miss}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.10}{distance\137cos\137miss}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.11}{distance\137kl\137miss}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.12}{distance\137lp\137miss}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.13}{UCompute}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.14}{UCompute\137miss}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.15}{RunKCC}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.16}{exMeasure}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.17}{inMeasure}{section.3}% 23
+\BOOKMARK [0][-]{Ref.0}{References}{}% 24
