@@ -1,7 +1,7 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Illustrative examples}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{A quick introductory example for illustrating the typical workflow}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{An illustrative example of choosing effective and efficient utility function}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{An illustrative example of choosing an effective and efficient utility function}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{An illustrative example of determining the best number of clusters}{section.2}% 5
 \BOOKMARK [1][-]{section.3}{Matlab functions that are provided to the user}{}% 6
 \BOOKMARK [2][-]{subsection.3.1}{BasicCluster\137RFS}{section.3}% 7

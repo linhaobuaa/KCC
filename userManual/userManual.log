@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.28)  25 APR 2023 14:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.28)  15 JUN 2023 08:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1024,24 +1024,24 @@ File: l3backend-pdfmode.def 2020-02-23 L3 backend support: PDF mode
 (./userManual.aux)
 \openout1 = `userManual.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 194.
-LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
 \AtBeginShipoutBox=\box174
-Package hyperref Info: Link coloring OFF on input line 194.
+Package hyperref Info: Link coloring OFF on input line 138.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1055,9 +1055,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count360
 )
-LaTeX Info: Redefining \ref on input line 194.
-LaTeX Info: Redefining \pageref on input line 194.
-LaTeX Info: Redefining \nameref on input line 194.
+LaTeX Info: Redefining \ref on input line 138.
+LaTeX Info: Redefining \pageref on input line 138.
+LaTeX Info: Redefining \nameref on input line 138.
  (./userManual.out) (./userManual.out)
 \@outlinefile=\write4
 \openout4 = `userManual.out'.
@@ -1115,31 +1115,31 @@ ABD: EveryShipout initializing macros
 \c@lstlisting=\count367
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 19
-7.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 14
+1.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 197
+LaTeX Font Info:    Trying to load font information for U+msa on input line 141
 .
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 197
+LaTeX Font Info:    Trying to load font information for U+msb on input line 141
 .
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
-02.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
+46.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (0.71669pt too wide) in paragraph at lines 228--229
+Overfull \hbox (0.71669pt too wide) in paragraph at lines 175--176
 []\OT1/cmss/m/n/10 gClusterDistribution.m \OT1/cmr/m/n/10 (aux-il-iary func-tio
 n to cal-cu-late clus-ter dis-tri-bu-tion for BPs) 
  []
@@ -1155,42 +1155,46 @@ Package epstopdf Info: Source file: <fig/soft.eps>
 (epstopdf)                    size: 214774 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/soft-eps-converted-to.
 pdf fig/soft.eps>
-(epstopdf)             \includegraphics on input line 251.
+(epstopdf)             \includegraphics on input line 202.
 Package epstopdf Info: Output file is already uptodate.
 <fig/soft-eps-converted-to.pdf, id=150, 899.36pt x 519.9425pt>
 File: fig/soft-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/soft-eps-converted-to.pdf>
-Package pdftex.def Info: fig/soft-eps-converted-to.pdf  used on input line 251.
+Package pdftex.def Info: fig/soft-eps-converted-to.pdf  used on input line 202.
 
 (pdftex.def)             Requested size: 328.67436pt x 190.01147pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3701) has occurred while \output is active []
 
  [2 <./fig/soft-eps-converted-to.pdf>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 266.
+nput line 217.
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-267.
+218.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [3]
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 
-342.
-LaTeX Font Info:    No file OMScmss.fd. on input line 342.
+293.
+LaTeX Font Info:    No file OMScmss.fd. on input line 293.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 342.
+(Font)              for symbol `textbraceleft' on input line 293.
 
 [4] [5]
-Overfull \hbox (22.87828pt too wide) in paragraph at lines 388--389
+Overfull \hbox (22.87828pt too wide) in paragraph at lines 339--340
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][] 
  []
 
-[6] [7]
+
+Underfull \vbox (badness 3118) has occurred while \output is active []
+
+ [6]
+[7]
 Package epstopdf Info: Source file: <fig/iris_u_c_std_evacluster_distortionscor
 e.eps>
 (epstopdf)                    date: 2023-04-21 17:00:04
@@ -1202,7 +1206,7 @@ e-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=fig/iris_u_c_std_evacluste
 r_distortionscore-eps-converted-to.pdf fig/iris_u_c_std_evacluster_distortionsc
 ore.eps>
-(epstopdf)             \includegraphics on input line 569.
+(epstopdf)             \includegraphics on input line 520.
 Package epstopdf Info: Output file is already uptodate.
 <fig/iris_u_c_std_evacluster_distortionscore-eps-converted-to.pdf, id=306, 496.
 85625pt x 396.48125pt>
@@ -1210,7 +1214,7 @@ File: fig/iris_u_c_std_evacluster_distortionscore-eps-converted-to.pdf Graphic
 file (type pdf)
 <use fig/iris_u_c_std_evacluster_distortionscore-eps-converted-to.pdf>
 Package pdftex.def Info: fig/iris_u_c_std_evacluster_distortionscore-eps-conver
-ted-to.pdf  used on input line 569.
+ted-to.pdf  used on input line 520.
 (pdftex.def)             Requested size: 123.73817pt x 98.73892pt.
 Package epstopdf Info: Source file: <fig/iris_u_c_std_evacluster_silhouettecoef
 ficient.eps>
@@ -1223,7 +1227,7 @@ ficient-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=fig/iris_u_c_std_evacluste
 r_silhouettecoefficient-eps-converted-to.pdf fig/iris_u_c_std_evacluster_silhou
 ettecoefficient.eps>
-(epstopdf)             \includegraphics on input line 575.
+(epstopdf)             \includegraphics on input line 526.
 Package epstopdf Info: Output file is already uptodate.
 <fig/iris_u_c_std_evacluster_silhouettecoefficient-eps-converted-to.pdf, id=307
 , 492.84125pt x 396.48125pt>
@@ -1231,7 +1235,7 @@ File: fig/iris_u_c_std_evacluster_silhouettecoefficient-eps-converted-to.pdf Gr
 aphic file (type pdf)
 <use fig/iris_u_c_std_evacluster_silhouettecoefficient-eps-converted-to.pdf>
 Package pdftex.def Info: fig/iris_u_c_std_evacluster_silhouettecoefficient-eps-
-converted-to.pdf  used on input line 575.
+converted-to.pdf  used on input line 526.
 (pdftex.def)             Requested size: 123.73817pt x 99.54355pt.
 Package epstopdf Info: Source file: <fig/iris_u_c_std_evacluster_CH.eps>
 (epstopdf)                    date: 2023-04-21 17:00:17
@@ -1242,7 +1246,7 @@ ed-to.pdf>
 (epstopdf)                    size: 201380 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/iris_u_c_std_evacluste
 r_CH-eps-converted-to.pdf fig/iris_u_c_std_evacluster_CH.eps>
-(epstopdf)             \includegraphics on input line 581.
+(epstopdf)             \includegraphics on input line 532.
 Package epstopdf Info: Output file is already uptodate.
 <fig/iris_u_c_std_evacluster_CH-eps-converted-to.pdf, id=308, 496.85625pt x 396
 .48125pt>
@@ -1250,121 +1254,59 @@ File: fig/iris_u_c_std_evacluster_CH-eps-converted-to.pdf Graphic file (type pd
 f)
 <use fig/iris_u_c_std_evacluster_CH-eps-converted-to.pdf>
 Package pdftex.def Info: fig/iris_u_c_std_evacluster_CH-eps-converted-to.pdf  u
-sed on input line 581.
+sed on input line 532.
 (pdftex.def)             Requested size: 123.73817pt x 98.73892pt.
  [8 <./fig/iris_u_c_std_evacluster_distortionscore-eps-converted-to.pdf> <./fig
 /iris_u_c_std_evacluster_silhouettecoefficient-eps-converted-to.pdf> <./fig/iri
-s_u_c_std_evacluster_CH-eps-converted-to.pdf>] [9]
-Overfull \hbox (19.32704pt too wide) in paragraph at lines 686--687
-[]\OT1/pcr/m/n/10 Ki, sumKi, binIDX, missFlag, missMatrix, distance, Pvector, w
-eight
- []
-
-[10]
-Overfull \hbox (49.32704pt too wide) in paragraph at lines 717--718
-[]\OT1/pcr/m/n/10 sumbest, index, converge, utility = KCC(IDX, K, U, w, weight,
- distance, 
- []
-
-
-Overfull \hbox (15.32704pt too wide) in paragraph at lines 717--718
-\OT1/pcr/m/n/10 maxIter, minThres, utilFlag, missFlag, missMatrix, n, r, Ki, su
-mKi,
- []
-
-[11] [12] [13]
-Overfull \hbox (44.52705pt too wide) in paragraph at lines 837--838
-[]\OT1/pcr/m/n/10 D = distance[]euc[]miss(U, C, weight, n, r, K, sumKi, binIDX,
- missMatrix)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 837--838
-
- []
-
-[14]
-Overfull \hbox (44.52705pt too wide) in paragraph at lines 859--860
-[]\OT1/pcr/m/n/10 D = distance[]cos[]miss(U, C, weight, n, r, K, sumKi, binIDX,
- missMatrix)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 859--860
-
- []
-
-[15]
-Overfull \hbox (38.52705pt too wide) in paragraph at lines 881--882
-[]\OT1/pcr/m/n/10 D = distance[]kl[]miss(U, C, weight, n, r, K, sumKi, binIDX, 
-missMatrix)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 881--882
-
- []
-
-
-Overfull \hbox (38.52705pt too wide) in paragraph at lines 903--904
-[]\OT1/pcr/m/n/10 D = distance[]lp[]miss(U, C, weight, n, r, K, sumKi, binIDX, 
-missMatrix)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 903--904
-
- []
-
-[16]
-Overfull \hbox (4.92705pt too wide) in paragraph at lines 951--952
+s_u_c_std_evacluster_CH-eps-converted-to.pdf>] [9] [10] [11] [12] [13]
+[14] [15] [16]
+Overfull \hbox (4.92705pt too wide) in paragraph at lines 902--903
 []\OT1/pcr/m/n/10 util = UCompute[]miss(index, U, w, C, n, r, K, sumKi, Pvector
 , M)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 951--952
+Underfull \hbox (badness 10000) in paragraph at lines 902--903
 
  []
 
 [17]
-Overfull \hbox (15.72707pt too wide) in paragraph at lines 974--975
-[]\OT1/pcr/m/n/10 [pi[]sumbest, pi[]index, pi[]converge, pi[]utility, t] = RunK
-CC(IDX, K,
- []
-
-
-Overfull \hbox (67.32704pt too wide) in paragraph at lines 998--999
+Overfull \hbox (13.32704pt too wide) in paragraph at lines 949--950
 []\OT1/pcr/m/n/10 [Acc, Rn, NMI, VIn, VDn, labelnum, ncluster, cmatrix] = exMea
-sure(cluster,
+sure 
  []
 
-[18] (./userManual.bbl [19]
+[18]
+Overfull \hbox (15.32892pt too wide) in paragraph at lines 988--990
+\OT1/cmr/m/n/10 This func-tion im-ple-ments two in-ter-nal va-lid-ity in-dices,
+ in-clud-ing the Dis-tor-tion Score [[]Bradley
+ []
+
+(./userManual.bbl [19]
 LaTeX Info: Redefining \tempurl on input line 164.
 LaTeX Info: Redefining \tempurl on input line 181.
 ) [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1046.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1046.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 997.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 997.
  (./userManual.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1046.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1046.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 997.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 997.
 Package rerunfilecheck Info: File `userManual.out' has not changed.
-(rerunfilecheck)             Checksum: 1787468902E3BE9559DDA21801B2F485;1683.
+(rerunfilecheck)             Checksum: E8E3FECC00F460351EC339D40155B1FD;1686.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1046.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 997.
  ) 
 Here is how much of TeX's memory you used:
  25681 strings out of 480994
  505358 string characters out of 5912142
- 1080735 words of memory out of 5000000
+ 1087735 words of memory out of 5000000
  40516 multiletter control sequences out of 15000+600000
  547298 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,13n,87p,1755b,1852s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,13n,87p,1749b,1850s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/te
 xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/tex
@@ -1394,10 +1336,10 @@ msfonts/cm/cmti9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-
 super/sfss0900.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/
 ucrb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrr8a.p
 fb>
-Output written on userManual.pdf (20 pages, 1184586 bytes).
+Output written on userManual.pdf (20 pages, 1186056 bytes).
 PDF statistics:
- 546 PDF objects out of 1000 (max. 8388607)
- 466 compressed objects within 5 object streams
+ 548 PDF objects out of 1000 (max. 8388607)
+ 468 compressed objects within 5 object streams
  156 named destinations out of 1000 (max. 500000)
  321 words of extra memory for PDF output out of 10000 (max. 10000000)
 

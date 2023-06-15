@@ -348,7 +348,6 @@ INPUT ./fig/soft.eps
 INPUT ./fig/soft-eps-converted-to.pdf
 INPUT ./fig/soft-eps-converted-to.pdf
 INPUT ./fig/soft-eps-converted-to.pdf
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
@@ -359,6 +358,7 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/courier/pcrb7t.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
