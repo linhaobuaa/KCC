@@ -74,3 +74,18 @@ D. Auxiliary functions
 4. Contact
 ==========
 For questions and comments, please feel free to contact Dr. Hao Lin at haolin@buaa.edu.cn.
+
+5. Cite
+==========
+For use of the software, please cite the paper published in ACM TOMS with the following BibTex.
+
+@article{lin2023algorithm,
+  title={Algorithm xxxx: KCC: A MATLAB Package for K-means-based Consensus Clustering},
+  author={Lin, Hao and Liu, Hongfu and Wu, Junjie and Li, Hong and G{\"u}nnemann, Stephan},
+  journal={ACM transactions on mathematical software},
+  year={2023},
+  publisher={ACM New York, NY}
+}
+
+6. Ongoing Development
+This code is being developed on an on-going basis at the author's [Github site](https://github.com/linhaobuaa/KCC). Please go there if you would like to get a more recent version of the software.
